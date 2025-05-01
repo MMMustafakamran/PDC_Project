@@ -1,6 +1,24 @@
 import sys
 import itertools
 from collections import defaultdict, deque
+import subprocess
+
+def write_metis_file(vertices, adj, filename):
+    """Write the Bn graph to a file in METIS format."""
+    index_map = {v: i+1 for i, v in enumerate(vertices)}  # 1-based indexing
+    with open(filename, 'w') as f:
+        total_edges = sum(len(neighbors) for neighbors in adj.values()) // 2
+        f.write(f"{len(vertices)} {total_edges}\n")
+        for v in vertices:
+            neighbors = [str(index_map[nb]) for nb in adj[v]]
+            f.write(" ".join(neighbors) + "\n")
+    return index_map
+
+def run_metis(input_file, k):
+    """Run METIS to partition the graph into k parts."""
+    cmd = ["gpmetis", input_file, str(k)]
+    subprocess.run(cmd, check=True)
+    return f"{input_file}.part.{k}"
 
 def generate_bn(n):
     """Generate vertices and adjacency list of B_n."""
@@ -67,6 +85,9 @@ def precompute(vertices, n):
 
 def build_trees(n):
     vertices, _ = generate_bn(n)
+    index_map = {v: i for i, v in enumerate(vertices)}  # tuple -> index
+    reverse_index_map = {i: v for v, i in index_map.items()}  # index -> tuple
+
     inv, rpos = precompute(vertices, n)
     root = tuple(range(1, n+1))
     trees = {}
@@ -76,7 +97,7 @@ def build_trees(n):
             if v == root: continue
             parent[v] = parent1(v, t, n, inv, rpos)
         trees[t] = parent
-    return vertices, trees
+    return vertices, trees, index_map, reverse_index_map
 
 def check_tree(n, vertices, trees):
     root = tuple(range(1, n+1))
@@ -104,13 +125,42 @@ def check_tree(n, vertices, trees):
             ok = False
     return ok
 
+def load_partition_file(filename):
+    with open(filename) as f:
+        return [int(line.strip()) for line in f]
+
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: python3 ist_seq.py <n>")
+    if len(sys.argv) != 3:
+        print("Usage: python3 ist_seq.py <n> <k_partitions>")
         sys.exit(1)
+    
     n = int(sys.argv[1])
-    vertices, trees = build_trees(n)
+    k = int(sys.argv[2])
+
+    # Generate Bn graph and adjacency
+    vertices, adj = generate_bn(n)
+
+    # Write METIS format graph
+    graph_file = f"Bn_{n}.graph"
+    index_map = write_metis_file(vertices, adj, graph_file)
+
+    # Run METIS partitioning
+    part_file = run_metis(graph_file, k)
+
+    # Load METIS partition results
+    part_labels = load_partition_file(part_file)
+    print(f"Partitioned into {k} parts using METIS.")
+
+    # Build ISTs
+    vertices, trees, _, _ = build_trees(n)
     print(f"Built {n-1} trees on B_{n} with |V|={len(vertices)}")
+
+    # Optional: Analyze ISTs per partition
+    for t, parent in trees.items():
+        partition_edges = [v for v in parent if part_labels[index_map[v] - 1] == part_labels[index_map[parent[v]] - 1]]
+        print(f"Tree {t}: {len(partition_edges)} intra-partition edges")
+
+    # Check correctness
     if check_tree(n, vertices, trees):
         print(f"SMOKE TEST PASS: Trees are valid for n={n}")
     else:
