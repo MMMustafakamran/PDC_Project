@@ -1,0 +1,51 @@
+
+
+Phase 0: Setup & Familiarization
+
+    Install MPI (OpenMPI or MPICH), METIS (and its headers/lib), a C/C++ compiler with OpenMP support (e.g. GCC ≥ 9), and Python with matplotlib.
+    Verify you can compile and run a simple “Hello MPI” and a METIS demo partition on a toy graph.
+
+Phase 1: Sequential Prototype
+    Goal: Write and validate a purely sequential version of the IST‐construction.
+
+    Graph generator
+
+    Write C++ (or Python) code to generate Bₙ in CSR form for arbitrary n (n≤6).
+
+    Parent1 function
+
+    Implement Parent1(v, t, n) exactly as in the paper (including precomputed inverse and r(v)).
+
+    Tree builder & checker
+
+    For t=1…n−1, build Tₙᵗ by calling Parent1 on every vertex.
+
+    Verify each Tₙᵗ is a tree (|V|−1 edges, connected, no cycles) and that Tₙᵗ(v→r) paths are independent.
+
+    Smoke tests
+
+    Run on n=3 and n=4; compare your outputs to the figures/tables in the paper.
+
+    Deliverable: A command ./ist_seq n that prints “OK” for n=3,4 and writes out each tree to tree_t.edgelist.
+
+Phase 2: METIS Partitioning
+    Goal: Integrate METIS to split your graph across P parts.
+
+    Export to METIS format
+
+    Write a converter that takes your CSR Bₙ and writes Bn.graph in METIS’s plain format.
+
+    Run gpmetis
+
+    For P=2,4,…, run gpmetis Bn.graph P and capture the .part.P file.
+
+    Read back parts
+
+    Modify your code so it reads the .part.P assignments and splits CSR into P local sub‐CSRs plus a boundary list for ghost vertices.
+
+    Validation
+
+    Check that each partition covers every vertex exactly once, and that the total edge cut reported by METIS matches your boundary lists.
+
+    Deliverable: A small program ./partition Bn.graph P that outputs “balanced: yes/no” and “edgecut: X”.
+
