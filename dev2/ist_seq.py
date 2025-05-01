@@ -78,7 +78,6 @@ def build_trees(n):
         trees[t] = parent
     return vertices, trees
 
-
 def check_tree(n, vertices, trees):
     root = tuple(range(1, n+1))
     ok = True
@@ -105,6 +104,21 @@ def check_tree(n, vertices, trees):
             ok = False
     return ok
 
+def save_trees_to_file(trees, n):
+    output_file = f"Bn{n}_ISTs_Seq.txt"
+    with open(output_file, "w") as f:
+        for t in sorted(trees.keys()):
+            f.write(f"Tree t={t} (node → parent):\n")
+            tree = trees[t]
+            for node in sorted(tree.keys()):
+                parent = tree[node]
+                if parent is None:
+                    f.write(f"{node} → ROOT\n")  # Root node
+                else:
+                    f.write(f"{node} → {parent}\n")
+            f.write("\n")
+    print(f"\nAll {n-1} ISTs have been constructed and saved to {output_file}.")
+
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Usage: python3 ist_seq.py <n>")
@@ -116,3 +130,5 @@ if __name__ == '__main__':
         print(f"SMOKE TEST PASS: Trees are valid for n={n}")
     else:
         print(f"SMOKE TEST FAIL for n={n}")
+
+    save_trees_to_file(trees, n)
