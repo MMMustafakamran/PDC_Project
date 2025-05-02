@@ -115,14 +115,17 @@ def analyze_edges(tree, partition_labels, index_map):
     for child, parent in tree.items():
         if parent is None:
             continue
+
         try:
-            if partition_labels[index_map[child]] == partition_labels[index_map[parent]]:
+            if partition_labels[child] == partition_labels[parent]:
                 intra += 1
             else:
                 inter += 1
-        except KeyError as e:
-            print(f"KeyError in analyze_edges: {e}")
+        except (IndexError, KeyError) as e:
+            print(f"Partition label error: {e} at child={child}, parent={parent}")
+
     return intra, inter
+
 
 if __name__ == '__main__':
     comm = MPI.COMM_WORLD
