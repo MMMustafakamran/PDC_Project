@@ -1,3 +1,5 @@
+#python3 ist_seq.py 4
+
 import sys
 import itertools
 from collections import defaultdict, deque
@@ -9,7 +11,7 @@ def generate_bn(n):
     for v in vertices:
         for i in range(n-1):
             w = list(v)
-            w[i], w[i+1] = w[i+1], w[i]
+            w[i], w[i+1] = w[i+1], w[i]a
             adj[v].append(tuple(w))
     return vertices, adj
 
