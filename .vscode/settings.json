@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "sstream": "cpp",
+        "unordered_map": "cpp",
+        "xlocmon": "cpp"
+    }
+}
