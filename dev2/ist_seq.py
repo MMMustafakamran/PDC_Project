@@ -1,30 +1,40 @@
 #python3 ist_seq.py 4
-
 import sys
+import os
 import itertools
 from collections import defaultdict, deque
+import networkx as nx
+import matplotlib.pyplot as plt
 
 def generate_bn(n):
     """Generate vertices and adjacency list of B_n."""
-    vertices = list(itertools.permutations(range(1, n+1)))
+    vertices = sorted(itertools.permutations(range(1, n+1)))
     adj = {v: [] for v in vertices}
     for v in vertices:
         for i in range(n-1):
             w = list(v)
-            w[i], w[i+1] = w[i+1], w[i]a
+            w[i], w[i+1] = w[i+1], w[i]
             adj[v].append(tuple(w))
     return vertices, adj
 
 def swap(v, x):
-    """Swap symbol x in v with its successor in the permutation."""
     v = list(v)
     idx = v.index(x)
     if idx < len(v)-1:
         v[idx], v[idx+1] = v[idx+1], v[idx]
     return tuple(v)
 
+def find_position(v, t, n, inv, rpos):
+    root = tuple(range(1, n+1))
+    # Implements “FindPosition” from the paper
+    if t == 2 and swap(v, t) == root:
+        return swap(v, t-1)
+    if v[-2] in {t, n-1}:
+        j = rpos[v]
+        return swap(v, j)
+    return swap(v, t)
+
 def parent1(v, t, n, inv, rpos):
-    """Compute the Parent1 of vertex v in tree T^n_t"""
     root = tuple(range(1, n+1))
     vn = v[-1]
     # Rule (1)
@@ -45,22 +55,13 @@ def parent1(v, t, n, inv, rpos):
     # Rule (6)
     return swap(v, t)
 
-def find_position(v, t, n, inv, rpos):
-    """Function FindPosition(v) per the paper."""
-    root = tuple(range(1, n+1))
-    if t == 2 and swap(v, t) == root:
-        return swap(v, t-1)
-    if v[-2] in {t, n-1}:
-        j = rpos[v]
-        return swap(v, j)
-    return swap(v, t)
-
 def precompute(vertices, n):
-    """Compute inverse permutations and rpos (rightmost out-of-place)."""
+    """Compute inverse permutations and rightmost out‐of‐place pos."""
     inv = {}
     rpos = {}
     for v in vertices:
-        inv[v] = {v[i]: i+1 for i in range(n)}  # symbol->1-based pos
+        inv[v] = {v[i]: i+1 for i in range(n)}
+        # rightmost position i where v[i] != i+1
         for i in range(n-1, -1, -1):
             if v[i] != i+1:
                 rpos[v] = i+1
@@ -68,69 +69,122 @@ def precompute(vertices, n):
     return inv, rpos
 
 def build_trees(n):
-    vertices, _ = generate_bn(n)
+    vertices, adj = generate_bn(n)
     inv, rpos = precompute(vertices, n)
     root = tuple(range(1, n+1))
     trees = {}
     for t in range(1, n):
         parent = {}
         for v in vertices:
-            if v == root: continue
-            parent[v] = parent1(v, t, n, inv, rpos)
+            parent[v] = None if v == root else parent1(v, t, n, inv, rpos)
         trees[t] = parent
-    return vertices, trees
+    return vertices, adj, trees
 
-def check_tree(n, vertices, trees):
+def check_trees(n, vertices, trees):
+    """Smoke‐test connectivity and edge‐count of each tree."""
     root = tuple(range(1, n+1))
     ok = True
     for t, parent in trees.items():
-        # Check edge count
-        if len(parent) != len(vertices)-1:
-            print(f"Tree {t}: wrong edge count {len(parent)} vs {len(vertices)-1}")
+        if len(parent) != len(vertices):
+            print(f"[ERROR] Tree {t}: has {len(parent)} nodes, expected {len(vertices)}")
             ok = False
-        # Check connectivity
+        # build undirected adjacency
         g = defaultdict(list)
         for v, p in parent.items():
-            g[v].append(p)
-            g[p].append(v)
-        visited = set([root])
+            if p is not None:
+                g[v].append(p)
+                g[p].append(v)
+        # BFS
+        seen = {root}
         dq = deque([root])
         while dq:
             u = dq.popleft()
             for w in g[u]:
-                if w not in visited:
-                    visited.add(w)
+                if w not in seen:
+                    seen.add(w)
                     dq.append(w)
-        if len(visited) != len(vertices):
-            print(f"Tree {t}: not connected ({len(visited)}/{len(vertices)})")
+        if len(seen) != len(vertices):
+            print(f"[ERROR] Tree {t}: only reached {len(seen)}/{len(vertices)} nodes")
             ok = False
     return ok
 
-def save_trees_to_file(trees, n):
-    output_file = f"Bn{n}_ISTs_Seq.txt"
-    with open(output_file, "w") as f:
-        for t in sorted(trees.keys()):
-            f.write(f"Tree t={t} (node → parent):\n")
-            tree = trees[t]
-            for node in sorted(tree.keys()):
-                parent = tree[node]
-                if parent is None:
-                    f.write(f"{node} → ROOT\n")  # Root node
-                else:
-                    f.write(f"{node} → {parent}\n")
-            f.write("\n")
-    print(f"\nAll {n-1} ISTs have been constructed and saved to {output_file}.")
+def visualize_bn(vertices, adj, n, outdir):
+    G = nx.Graph()
+    G.add_nodes_from(vertices)
+    for v in vertices:
+        for w in adj[v]:
+            if v < w:
+                G.add_edge(v, w)
+    labels = {v: ''.join(map(str, v)) for v in vertices}
+    plt.figure(figsize=(8,8))
+    pos = nx.spring_layout(G, seed=42)
+    nx.draw_networkx_nodes(G, pos, node_size=50, linewidths=0.2)
+    nx.draw_networkx_edges(G, pos, width=0.2)
+    nx.draw_networkx_labels(G, pos, labels, font_size=6)
+    plt.title(f"Full B_{n} Graph ({len(vertices)} nodes)")
+    plt.axis('off')
+    fn = os.path.join(outdir, f"Bn{n}_full_graph.png")
+    plt.tight_layout()
+    plt.savefig(fn, dpi=150)
+    plt.close()
+    print(f"Saved full‐graph to {fn}")
 
-if __name__ == '__main__':
+def visualize_tree(vertices, parent, t, n, outdir):
+    G = nx.Graph()
+    G.add_nodes_from(vertices)
+    for v, p in parent.items():
+        if p is not None:
+            G.add_edge(v, p)
+    labels = {v: ''.join(map(str, v)) for v in vertices}
+    plt.figure(figsize=(8,8))
+    pos = nx.spring_layout(G, seed=42)
+    nx.draw_networkx_nodes(G, pos, node_size=50, linewidths=0.2)
+    nx.draw_networkx_edges(G, pos, width=0.2)
+    nx.draw_networkx_labels(G, pos, labels, font_size=6)
+    plt.title(f"IST Tree t={t} on B_{n}")
+    plt.axis('off')
+    fn = os.path.join(outdir, f"Bn{n}_ist_t{t}.png")
+    plt.tight_layout()
+    plt.savefig(fn, dpi=150)
+    plt.close()
+    print(f"Saved IST‐tree t={t} to {fn}")
+
+def save_parents_file(trees, n, outdir):
+    fn = os.path.join(outdir, f"Bn{n}_IST_parents.txt")
+    with open(fn, "w") as f:
+        f.write(f"Constructed {n-1} ISTs on B_{n}\n\n")
+        for t in sorted(trees):
+            f.write(f"Tree t={t} (node -> parent):\n")
+            for v in sorted(trees[t]):
+                p = trees[t][v]
+                if p is None:
+                    f.write(f"{v} -> ROOT\n")
+                else:
+                    f.write(f"{v} -> {p}\n")
+            f.write("\n")
+    print(f"Saved parent mapping to {fn}")
+
+def main():
     if len(sys.argv) != 2:
         print("Usage: python3 ist_seq.py <n>")
         sys.exit(1)
     n = int(sys.argv[1])
-    vertices, trees = build_trees(n)
-    print(f"Built {n-1} trees on B_{n} with |V|={len(vertices)}")
-    if check_tree(n, vertices, trees):
-        print(f"SMOKE TEST PASS: Trees are valid for n={n}")
-    else:
-        print(f"SMOKE TEST FAIL for n={n}")
+    vertices, adj, trees = build_trees(n)
+    print(f"Built {n-1} ISTs on B_{n} with |V| = {len(vertices)} vertices")
 
-    save_trees_to_file(trees, n)
+    if check_trees(n, vertices, trees):
+        print("SMOKE TEST PASS: All trees are valid")
+    else:
+        print("SMOKE TEST FAIL: Issues detected")
+
+    outdir = f"Seq_Bn{n}"
+    os.makedirs(outdir, exist_ok=True)
+
+    visualize_bn(vertices, adj, n, outdir)
+    for t, parent in trees.items():
+        visualize_tree(vertices, parent, t, n, outdir)
+
+    save_parents_file(trees, n, outdir)
+
+if __name__ == "__main__":
+    main()
