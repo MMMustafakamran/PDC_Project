@@ -162,12 +162,14 @@ def visualize_graph(G, labels, title, outpath):
     """
     Generic drawing of a NetworkX graph, saved to PNG.
     Only rank 0 performs visualization.
+    **Changed**: use circular_layout to avoid SciPy dependency.
     """
     if MPI.COMM_WORLD.Get_rank() != 0:
         return
         
     plt.figure(figsize=(8,8))
-    pos = nx.spring_layout(G, seed=42)
+    # pos = nx.spring_layout(G, seed=42)  # <-- removed (requires SciPy)
+    pos = nx.circular_layout(G)
     nx.draw_networkx_nodes(G, pos, node_size=300, linewidths=0.5)
     nx.draw_networkx_edges(G, pos, width=0.5)
     nx.draw_networkx_labels(G, pos, labels, font_size=8)
@@ -321,7 +323,6 @@ if __name__ == '__main__':
 
         # --- begin added: repair each merged IST to guarantee a spanning tree ---
         def sort_key(v):
-            # number of entries out of place (distance) then last element
             dist = sum(1 for i, x in enumerate(v, 1) if x != i)
             return (dist, v[-1])
 
@@ -335,7 +336,6 @@ if __name__ == '__main__':
             return False
 
         def would_create_cycle(child, new_parent, parent):
-            # walk up from new_parent to root—if we see child, we'd form a cycle
             v = new_parent
             while v is not None:
                 if v == child:
@@ -346,7 +346,6 @@ if __name__ == '__main__':
         def repair_tree(parent_map, vertices):
             root = tuple(range(1, n+1))
             verts = sorted(vertices, key=sort_key)
-            # Pass 2: fix any node whose chain doesn’t reach root
             for v in verts:
                 if v == root:
                     parent_map[v] = None
@@ -357,7 +356,6 @@ if __name__ == '__main__':
                             if has_path_to_root(u, parent_map, root):
                                 parent_map[v] = u
                                 break
-            # Pass 3: any remainers—hook directly under any valid node
             for v in verts:
                 if v != root and not has_path_to_root(v, parent_map, root):
                     for u in verts:
@@ -367,7 +365,6 @@ if __name__ == '__main__':
                                 break
             return parent_map
 
-        # apply repair to every IST
         for t in merged_ISTs:
             merged_ISTs[t] = repair_tree(merged_ISTs[t], vertices)
         # --- end added repair block ---

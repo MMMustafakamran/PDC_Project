@@ -1,4 +1,4 @@
-ISTs for n=6, k=4 partitions
+ISTs for n=6, k=12 partitions
 
 Tree t=1:
   (1, 2, 3, 4, 5, 6) → ROOT
