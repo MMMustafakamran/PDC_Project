@@ -5,6 +5,7 @@ import itertools
 from collections import defaultdict, deque
 import networkx as nx
 import matplotlib.pyplot as plt
+import time  # Add time module
 
 def generate_bn(n):
     """Generate vertices and adjacency list of B_n."""
@@ -289,6 +290,8 @@ def main():
         print("Usage: python3 ist_seq.py <n>")
         sys.exit(1)
     n = int(sys.argv[1])
+    
+    start_time = time.time()  # Start timing
     vertices, adj, trees = build_trees(n)
     print(f"Built {n-1} ISTs on B_{n} with |V| = {len(vertices)} vertices")
 
@@ -305,6 +308,9 @@ def main():
         visualize_tree(vertices, parent, t, n, outdir)
 
     save_parents_file(trees, n, outdir)
+    
+    end_time = time.time()  # End timing
+    print(f"\nExecution time: {end_time - start_time:.2f} seconds")  # Print execution time
 
 if __name__ == "__main__":
     main()

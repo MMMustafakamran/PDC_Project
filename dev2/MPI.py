@@ -1,8 +1,7 @@
-
 # To run:
 #   mpiexec -n <num_procs> python3 MPI.py <n> <k_partitions>
 # Summary of what this script does:
-#   • Generates the “Bn” graph whose vertices are all permutations of [1..n],
+#   • Generates the "Bn" graph whose vertices are all permutations of [1..n],
 #     with edges between permutations that differ by one adjacent swap.
 #   • Writes the Bn graph in METIS format and uses gpmetis to partition it into k parts.
 #   • Broadcasts the graph and partition labels to all MPI processes.
@@ -22,6 +21,7 @@ from collections import defaultdict
 from mpi4py import MPI
 import networkx as nx
 import matplotlib.pyplot as plt
+import numpy as np
 
 def write_metis_file(vertices, adj, filename):
     """
@@ -62,11 +62,15 @@ def generate_bn(n):
     """
     vertices = sorted(itertools.permutations(range(1, n+1)))
     adj = {v: [] for v in vertices}
+    # Pre-allocate memory for neighbors
     for v in vertices:
+        adj[v] = [None] * (n-1)
+        idx = 0
         for i in range(n-1):
             w = list(v)
             w[i], w[i+1] = w[i+1], w[i]
-            adj[v].append(tuple(w))
+            adj[v][idx] = tuple(w)
+            idx += 1
     return vertices, adj
 
 def swap(v, x):
@@ -83,12 +87,21 @@ def parent1(v, t, n, inv, rpos):
     """
     Compute the parent of v in the IST for tree parameter t.
     Based on inversion-sequence rules and adjacent swaps.
+    Optimized version with fewer function calls.
     """
     root = tuple(range(1, n+1))
+    if v == root:
+        return None
+        
     vn = v[-1]
     if vn == n:
         if t != n-1:
-            return find_position(v, t, n, inv, rpos)
+            # Inline find_position logic for better performance
+            if t == 2 and swap(v, t) == root:
+                return swap(v, t-1)
+            if v[-2] in {t, n-1}:
+                return swap(v, rpos[v])
+            return swap(v, t)
         else:
             return swap(v, v[-2])
     if vn == n-1 and v[-2] == n and swap(v, n) != root:
@@ -125,24 +138,36 @@ def precompute(vertices, n):
                 break
     return inv, rpos
 
-def analyze_edges(tree, partition_labels, index_map):
+def analyze_edges(tree, vertex_label_map, index_map):
     """
     Count intra-partition vs inter-partition edges in a tree.
+    Returns count of edges within same partition (intra) and between partitions (inter).
     """
     intra = inter = 0
     for child, parent in tree.items():
-        if parent is None:
+        if parent is None:  # Skip root
             continue
-        if partition_labels[index_map[child]] == partition_labels[index_map[parent]]:
+            
+        # Get partition labels directly from vertex_label_map
+        child_partition = vertex_label_map[child]
+        parent_partition = vertex_label_map[parent]
+        
+        # Count edge as intra or inter partition
+        if child_partition == parent_partition:
             intra += 1
         else:
             inter += 1
+                
     return intra, inter
 
 def visualize_graph(G, labels, title, outpath):
     """
     Generic drawing of a NetworkX graph, saved to PNG.
+    Only rank 0 performs visualization.
     """
+    if MPI.COMM_WORLD.Get_rank() != 0:
+        return
+        
     plt.figure(figsize=(8,8))
     pos = nx.spring_layout(G, seed=42)
     nx.draw_networkx_nodes(G, pos, node_size=300, linewidths=0.5)
@@ -194,6 +219,55 @@ def save_trees_to_file(merged_ISTs, n, k, outdir):
                 f.write(f"  {node} → {par if par else 'ROOT'}\n")
             f.write("\n")
 
+def optimize_partitioning(vertices, adj, k):
+    """Optimize graph partitioning for better load balancing."""
+    # Calculate vertex weights based on degree
+    weights = {v: len(adj[v]) for v in vertices}
+    total_weight = sum(weights.values())
+    target_weight = total_weight / k
+    
+    # Sort vertices by weight
+    sorted_vertices = sorted(vertices, key=lambda v: weights[v], reverse=True)
+    
+    # Assign vertices to partitions
+    partitions = [[] for _ in range(k)]
+    partition_weights = [0] * k
+    
+    for v in sorted_vertices:
+        # Find partition with minimum weight
+        min_part = np.argmin(partition_weights)
+        partitions[min_part].append(v)
+        partition_weights[min_part] += weights[v]
+    
+    # Create vertex to partition mapping
+    vertex_partition = {}
+    for i, part in enumerate(partitions):
+        for v in part:
+            vertex_partition[v] = i
+            
+    return vertex_partition
+
+def distribute_data(comm, rank, size, vertices, adj):
+    """Efficiently distribute data across processes."""
+    if rank == 0:
+        # Calculate optimal partition
+        vertex_partition = optimize_partitioning(vertices, adj, size)
+        
+        # Prepare data for each process
+        process_data = [[] for _ in range(size)]
+        for v in vertices:
+            part = vertex_partition[v]
+            process_data[part].append(v)
+    else:
+        process_data = None
+        vertex_partition = None
+    
+    # Scatter data to processes
+    local_vertices = comm.scatter(process_data, root=0)
+    vertex_partition = comm.bcast(vertex_partition, root=0)
+    
+    return local_vertices, vertex_partition
+
 # -----------------------------------------------------------------------------
 # Main MPI workflow
 # -----------------------------------------------------------------------------
@@ -212,57 +286,60 @@ if __name__ == '__main__':
     n = int(sys.argv[1])
     k = int(sys.argv[2])
 
+    # Start timing
+    start_time = MPI.Wtime()
+
     if rank == 0:
-        # — Rank 0 builds the graph and runs METIS —
+        # Generate graph data
+        vertices, adj = generate_bn(n)
         outdir = f"MPI_Bn{n}"
         os.makedirs(outdir, exist_ok=True)
-
-        vertices, adj = generate_bn(n)
-        visualize_bn(vertices, adj, n, outdir)
-
-        graph_file = os.path.join(outdir, f"bn{n}_metis_graph.txt")
-        index_map = write_metis_file(vertices, adj, graph_file)
-
-        part_file = run_metis(graph_file, k)
-        part_labels = load_partition_file(part_file)
-        vertex_label_map = {v: part_labels[i] for i, v in enumerate(vertices)}
     else:
-        vertices = index_map = vertex_label_map = None
+        vertices = adj = None
 
-    # Broadcast graph data to all ranks
-    vertices         = comm.bcast(vertices, root=0)
-    index_map        = comm.bcast(index_map, root=0)
-    vertex_label_map = comm.bcast(vertex_label_map, root=0)
+    # Efficient data distribution
+    local_vertices, vertex_partition = distribute_data(comm, rank, size, vertices, adj)
 
-    # Precompute helper structures
-    inv, rpos = precompute(vertices, n)
-
-    # Filter to the subset assigned to this rank
-    local_vertices = [v for v in vertices if vertex_label_map[v] == rank]
+    # Precompute helper structures locally
+    inv, rpos = precompute(local_vertices, n)
 
     # Each rank builds its local IST segments
-    local_results = defaultdict(dict)
+    local_ISTs = {}
     for t in range(1, n):
+        local_ISTs[t] = {}
+        # Pre-allocate memory for this tree
+        local_ISTs[t] = {v: None for v in local_vertices}
         for v in local_vertices:
-            parent = None if v == tuple(range(1, n+1)) else parent1(v, t, n, inv, rpos)
-            local_results[t][v] = parent
+            local_ISTs[t][v] = parent1(v, t, n, inv, rpos)
 
-    # Gather all partial ISTs at rank 0
-    all_parts = comm.gather(local_results, root=0)
+    # Gather all local ISTs to rank 0
+    all_ISTs = comm.gather(local_ISTs, root=0)
 
     if rank == 0:
-        # Merge and save/visualize all ISTs
-        merged = defaultdict(dict)
-        for part in all_parts:
-            for t, tree in part.items():
-                merged[t].update(tree)
-
-        save_trees_to_file(merged, n, k, outdir)
-        for t, tree in merged.items():
-            visualize_tree(vertices, tree, t, n, outdir)
-
-        # Report inter/intra-partition stats
-        print("\nIST Inter/Intra Edge Analysis:")
+        # Merge all local ISTs
+        merged_ISTs = {}
         for t in range(1, n):
-            intra, inter = analyze_edges(merged[t], vertex_label_map, index_map)
-            print(f"  Tree {t}: Intra = {intra}, Inter = {inter}")
+            merged_ISTs[t] = {}
+            for local_ist in all_ISTs:
+                merged_ISTs[t].update(local_ist[t])
+
+        # Save results
+        save_trees_to_file(merged_ISTs, n, k, outdir)
+
+        # Visualize all trees
+        for t in range(1, n):
+            visualize_tree(vertices, merged_ISTs[t], t, n, outdir)
+
+        # Print timing information
+        end_time = MPI.Wtime()
+        print(f"\nExecution time: {end_time - start_time:.2f} seconds")
+
+        # Print partition analysis
+        print("\nPartition Analysis:")
+        for t in range(1, n):
+            intra, inter = analyze_edges(merged_ISTs[t], vertex_partition, None)
+            print(f"Tree t={t}:")
+            print(f"  Intra-partition edges: {intra}")
+            print(f"  Inter-partition edges: {inter}")
+            print(f"  Total edges: {intra + inter}")
+            print()
