@@ -4,12 +4,6 @@
 export OMP_NUM_THREADS=4
 mpiexec -n 4 ./openmp_ist 6 4
 */
-// File: openmp_ist.cpp
-// Compile with:
-//   mpic++ -O3 -fopenmp openmp_ist.cpp -o openmp_ist
-// Run with:
-//   export OMP_NUM_THREADS=4
-//   mpiexec -n 4 ./openmp_ist 6 4
 
 #include <mpi.h>
 #include <omp.h>
@@ -37,6 +31,18 @@ std::vector<Perm> gen_vertices(int n) {
     return V;
 }
 
+// Helper function to convert permutation to string representation
+std::string perm_to_string(const Perm& p) {
+    std::ostringstream oss;
+    oss << "[";
+    for (size_t i = 0; i < p.size(); ++i) {
+        oss << p[i];
+        if (i < p.size() - 1) oss << " ";
+    }
+    oss << "]";
+    return oss.str();
+}
+
 AdjList gen_adj(const std::vector<Perm>& V) {
     int N = V.size(), n = V[0].size();
     AdjList adj(N);
@@ -50,6 +56,30 @@ AdjList gen_adj(const std::vector<Perm>& V) {
     }
     return adj;
 }
+void write_complete_graph(
+    const std::vector<std::vector<int>>& adj,
+    const std::string& filename_dot,
+    const std::string& filename_png = "",
+    bool generate_png = false
+) {
+    std::ofstream fout(filename_dot);
+    fout << "graph G {\n";
+    for (size_t u = 0; u < adj.size(); ++u) {
+        for (int v : adj[u]) {
+            if (u < v)  // to avoid duplicates
+                fout << "  " << u << " -- " << v << ";\n";
+        }
+    }
+    fout << "}\n";
+    fout.close();
+
+    if (generate_png && !filename_png.empty()) {
+        std::string cmd = "dot -Tpng " + filename_dot + " -o " + filename_png;
+        int ret = std::system(cmd.c_str());
+        if (ret != 0) std::cerr << "Graphviz PNG generation failed\n";
+    }
+}
+
 
 std::vector<int> partition_metis(const AdjList& adj, int k, int /*n*/) {
     int N = adj.size();
@@ -180,20 +210,34 @@ bool check_dot_available() {
 void write_dot_and_png(const std::vector<int>& parent,
                        int t, int N,
                        const std::string& dir,
-                       bool can_dot) {
+                       bool can_dot,
+                       const std::vector<Perm>& V) {
     // 1) Write DOT (always)
     std::ostringstream dotname;
     dotname << dir << "/ist_t" << t << ".dot";
     std::ofstream dot(dotname.str());
     dot << "digraph IST_t" << t << " {\n"
         << "  rankdir=TB;\n";
+    
+    // Create node definitions with permutation labels only
     for (int i = 0; i < N; ++i) {
+        std::string perm_label = perm_to_string(V[i]);
+        // Add ROOT indicator if needed
         if (parent[i] < 0) {
-            dot << "  " << i << " [label=\"" << i << "\\nROOT\"];\n";
+            dot << "  \"" << perm_label << "\" [label=\"" << perm_label << "\\nROOT\"];\n";
         } else {
-            dot << "  " << parent[i] << " -> " << i << ";\n";
+            dot << "  \"" << perm_label << "\" [label=\"" << perm_label << "\"];\n";
         }
     }
+    
+    // Create edges using permutation strings as node identifiers
+    for (int i = 0; i < N; ++i) {
+        if (parent[i] >= 0) {
+            dot << "  \"" << perm_to_string(V[parent[i]]) << "\" -> \"" 
+                << perm_to_string(V[i]) << "\";\n";
+        }
+    }
+    
     dot << "}\n";
     dot.close();
 
@@ -239,10 +283,16 @@ int main(int argc, char** argv) {
     if (rank == 0) {
         V   = gen_vertices(n);
         adj = gen_adj(V);
+        if (rank == 0) {
+            std::cout << "Writing complete graph..." << std::endl;
+            write_complete_graph(adj, "complete_graph.dot", "complete_graph.png", can_dot);
+        }
+        
         N   = V.size();
         mkdir(("OpenMp_Bn" + std::to_string(n)).c_str(), 0755);
         part = partition_metis(adj, k, n);
     }
+    
     MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
     if (rank != 0) part.resize(N);
     MPI_Bcast(part.data(), N, MPI_INT, 0, MPI_COMM_WORLD);
@@ -306,17 +356,19 @@ int main(int argc, char** argv) {
 
             // Save text
             std::ofstream fout(outdir + "/ist_t" + std::to_string(t) + ".txt");
-            fout << "node -> parent\n";
+            fout << "perm -> parent_perm\n";
             for (int i = 0; i < N; ++i) {
-                fout << i << " -> "
-                     << (merged_IST[t][i] < 0 ? "ROOT"
-                                              : std::to_string(merged_IST[t][i]))
-                     << "\n";
+                fout << perm_to_string(V[i]) << " -> ";
+                if (merged_IST[t][i] < 0) {
+                    fout << "ROOT\n";
+                } else {
+                    fout << perm_to_string(V[merged_IST[t][i]]) << "\n";
+                }
             }
             fout.close();
 
             // Write DOT + optionally PNG
-            write_dot_and_png(merged_IST[t], t, N, outdir, can_dot);
+            write_dot_and_png(merged_IST[t], t, N, outdir, can_dot, V);
             std::cout << "Written IST t=" << t
                       << (can_dot ? " + PNG\n" : " (PNG skipped)\n");
         }

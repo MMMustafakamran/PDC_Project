@@ -1,5 +1,6 @@
 # To run:
 #   mpiexec -n <num_procs> python3 MPI.py <n> <k_partitions>
+#   mpiexec -n 4 python3 MPI.py 4 2
 # Summary of what this script does:
 #   • Generates the "Bn" graph whose vertices are all permutations of [1..n],
 #     with edges between permutations that differ by one adjacent swap.
