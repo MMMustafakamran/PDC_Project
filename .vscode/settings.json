@@ -3,6 +3,8 @@
         "sstream": "cpp",
         "unordered_map": "cpp",
         "xlocmon": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
     }
 }
