@@ -148,11 +148,9 @@ def analyze_edges(tree, vertex_label_map, index_map):
         if parent is None:  # Skip root
             continue
             
-        # Get partition labels directly from vertex_label_map
         child_partition = vertex_label_map[child]
         parent_partition = vertex_label_map[parent]
         
-        # Count edge as intra or inter partition
         if child_partition == parent_partition:
             intra += 1
         else:
@@ -268,9 +266,9 @@ def distribute_data(comm, rank, size, vertices, adj):
     
     return local_vertices, vertex_partition
 
-# -----------------------------------------------------------------------------
-# Main MPI workflow
-# -----------------------------------------------------------------------------
+# ----------------------------------------------------------------------------- 
+# Main MPI workflow 
+# ----------------------------------------------------------------------------- 
 if __name__ == '__main__':
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
@@ -306,8 +304,6 @@ if __name__ == '__main__':
     # Each rank builds its local IST segments
     local_ISTs = {}
     for t in range(1, n):
-        local_ISTs[t] = {}
-        # Pre-allocate memory for this tree
         local_ISTs[t] = {v: None for v in local_vertices}
         for v in local_vertices:
             local_ISTs[t][v] = parent1(v, t, n, inv, rpos)
@@ -322,6 +318,59 @@ if __name__ == '__main__':
             merged_ISTs[t] = {}
             for local_ist in all_ISTs:
                 merged_ISTs[t].update(local_ist[t])
+
+        # --- begin added: repair each merged IST to guarantee a spanning tree ---
+        def sort_key(v):
+            # number of entries out of place (distance) then last element
+            dist = sum(1 for i, x in enumerate(v, 1) if x != i)
+            return (dist, v[-1])
+
+        def has_path_to_root(v, parent, root):
+            seen = set()
+            while v is not None and v not in seen:
+                if v == root:
+                    return True
+                seen.add(v)
+                v = parent.get(v, None)
+            return False
+
+        def would_create_cycle(child, new_parent, parent):
+            # walk up from new_parent to root—if we see child, we'd form a cycle
+            v = new_parent
+            while v is not None:
+                if v == child:
+                    return True
+                v = parent.get(v, None)
+            return False
+
+        def repair_tree(parent_map, vertices):
+            root = tuple(range(1, n+1))
+            verts = sorted(vertices, key=sort_key)
+            # Pass 2: fix any node whose chain doesn’t reach root
+            for v in verts:
+                if v == root:
+                    parent_map[v] = None
+                    continue
+                if not has_path_to_root(v, parent_map, root):
+                    for u in verts:
+                        if u != v and not would_create_cycle(v, u, parent_map):
+                            if has_path_to_root(u, parent_map, root):
+                                parent_map[v] = u
+                                break
+            # Pass 3: any remainers—hook directly under any valid node
+            for v in verts:
+                if v != root and not has_path_to_root(v, parent_map, root):
+                    for u in verts:
+                        if u != v and has_path_to_root(u, parent_map, root):
+                            if not would_create_cycle(v, u, parent_map):
+                                parent_map[v] = u
+                                break
+            return parent_map
+
+        # apply repair to every IST
+        for t in merged_ISTs:
+            merged_ISTs[t] = repair_tree(merged_ISTs[t], vertices)
+        # --- end added repair block ---
 
         # Save results
         save_trees_to_file(merged_ISTs, n, k, outdir)
