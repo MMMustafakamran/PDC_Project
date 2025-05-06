@@ -1,0 +1,786 @@
+Trying ./tau.conf
+TAU: VERBOSE enabled
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+Growing stack: depth=100, size=45600
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+Warning: Number of partitions k=4 is greater than the number of MPI processes=1. METIS will run, but process mapping might be uneven.
+============================================
+ Running IST Generation for B_n (n=6)
+ MPI Processes: 1
+ OpenMP Threads per process: 4
+ METIS Partitions (k): 4
+ Output Directory: openMp
+============================================
+Demangled: 'addr=<0x44204e>'
+Rank 0: Found `dot` command. PNG generation enabled (for n <= 5).
+Rank 0: Output directory 'openMp' already exists.
+Demangled: 'addr=<0x43f31a>'
+
+Rank 0: Stage 1: Generating Vertices and Adjacency List...
+Demangled: 'addr=<0x43f69f>'
+Rank 0: Generated 720 vertices (permutations).
+Rank 0: Generated adjacency list.
+
+Rank 0: Stage 2: Partitioning Graph using METIS (k=4)...
+Rank 0: Writing graph to METIS format file: openMp/bn.metis
+Demangled: 'addr=<0x43fad3>'
+Rank 0: Finished writing METIS file. Nodes: 720, Edges: 1800
+Rank 0: Running METIS partitioner: gpmetis "openMp/bn.metis" 4
+******************************************************************************
+METIS 5.0 Copyright 1998-13, Regents of the University of Minnesota
+ (HEAD: , Built on: Mar 24 2022, 16:16:52)
+ size of idx_t: 32bits, real_t: 32bits, idx_t *: 64bits
+
+Graph Information -----------------------------------------------------------
+ Name: openMp/bn.metis, #Vertices: 720, #Edges: 1800, #Parts: 4
+
+Options ---------------------------------------------------------------------
+ ptype=kway, objtype=cut, ctype=shem, rtype=greedy, iptype=metisrb
+ dbglvl=0, ufactor=1.030, no2hop=NO, minconn=NO, contig=NO, nooutput=NO
+ seed=-1, niter=10, ncuts=1
+
+Direct k-way Partitioning ---------------------------------------------------
+ - Edgecut: 233, communication volume: 453.
+
+ - Balance:
+     constraint #0:  1.022 out of 0.006
+
+ - Most overweight partition:
+     pid: 1, actual: 184, desired: 180, ratio: 1.02.
+
+ - Subdomain connectivity: max: 3, min: 3, avg: 3.00
+
+ - Each partition is contiguous.
+
+Timing Information ----------------------------------------------------------
+  I/O:          		   0.002 sec
+  Partitioning: 		   0.003 sec   (METIS time)
+  Reporting:    		   0.000 sec
+
+Memory Information ----------------------------------------------------------
+  Max memory used:		   0.154 MB
+******************************************************************************
+Rank 0: gpmetis finished.
+Rank 0: Reading METIS partition file: openMp/bn.metis.part.4
+Rank 0: Successfully read partition data.
+Rank 0: Graph partitioning complete.
+Rank 0: Stages 1 & 2 duration: 15 ms
+
+Rank 0: Broadcasted N and partition data to all ranks.
+Rank 0: Warning - METIS partition index 1 for vertex 8 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 9 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 10 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 11 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 12 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 13 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 14 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 15 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 16 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 17 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 18 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 19 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 20 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 21 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 22 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 23 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 32 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 33 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 34 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 35 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 36 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 37 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 38 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 39 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 40 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 41 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 42 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 43 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 44 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 45 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 46 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 47 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 50 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 51 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 52 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 53 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 56 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 57 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 58 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 59 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 60 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 61 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 62 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 63 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 64 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 65 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 66 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 67 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 68 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 69 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 70 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 71 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 72 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 73 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 74 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 75 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 76 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 77 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 78 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 79 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 80 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 81 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 82 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 83 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 84 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 85 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 86 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 87 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 88 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 89 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 90 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 91 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 92 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 93 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 94 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 95 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 96 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 97 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 98 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 99 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 100 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 101 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 102 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 103 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 104 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 105 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 106 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 107 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 108 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 109 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 110 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 111 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 112 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 113 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 114 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 115 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 116 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 117 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 118 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 119 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 128 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 129 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 130 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 131 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 132 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 133 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 134 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 135 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 136 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 137 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 138 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 139 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 140 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 141 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 142 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 143 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 170 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 171 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 172 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 173 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 180 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 181 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 182 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 183 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 184 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 185 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 186 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 187 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 190 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 191 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 192 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 193 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 194 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 195 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 196 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 197 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 198 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 199 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 200 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 201 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 202 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 203 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 204 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 205 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 206 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 207 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 208 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 209 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 210 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 211 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 212 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 213 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 214 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 215 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 216 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 217 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 218 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 219 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 220 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 221 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 228 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 229 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 232 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 233 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 234 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 235 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 236 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 237 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 238 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 239 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 248 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 249 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 250 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 251 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 252 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 253 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 254 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 255 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 256 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 257 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 258 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 259 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 260 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 261 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 262 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 263 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 291 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 292 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 293 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 301 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 304 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 305 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 306 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 307 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 310 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 311 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 312 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 313 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 314 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 315 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 316 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 317 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 318 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 319 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 320 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 321 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 322 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 323 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 324 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 325 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 326 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 327 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 328 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 329 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 330 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 331 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 332 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 333 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 334 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 335 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 336 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 337 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 338 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 339 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 340 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 341 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 348 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 349 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 352 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 353 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 354 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 355 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 356 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 357 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 358 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 359 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 362 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 363 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 364 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 365 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 368 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 369 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 370 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 371 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 372 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 373 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 374 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 375 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 376 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 377 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 378 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 379 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 380 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 381 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 382 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 383 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 386 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 387 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 388 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 389 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 396 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 397 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 398 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 399 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 400 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 401 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 402 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 403 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 406 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 407 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 411 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 412 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 413 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 421 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 424 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 425 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 426 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 427 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 430 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 431 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 432 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 433 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 434 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 435 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 436 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 437 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 438 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 439 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 440 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 441 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 442 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 443 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 444 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 445 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 446 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 447 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 448 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 449 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 450 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 451 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 452 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 453 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 454 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 455 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 456 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 457 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 458 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 459 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 460 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 461 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 462 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 463 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 466 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 467 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 468 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 469 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 472 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 473 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 474 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 475 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 476 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 477 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 478 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 479 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 480 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 481 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 482 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 483 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 484 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 485 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 486 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 487 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 488 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 489 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 490 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 491 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 492 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 493 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 494 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 495 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 496 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 497 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 498 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 499 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 500 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 501 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 502 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 503 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 504 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 505 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 506 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 507 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 508 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 509 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 510 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 511 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 512 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 513 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 514 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 515 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 516 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 517 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 518 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 519 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 520 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 521 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 522 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 523 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 524 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 525 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 526 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 527 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 528 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 529 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 530 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 531 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 532 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 533 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 534 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 535 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 536 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 537 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 538 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 539 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 540 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 541 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 542 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 543 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 544 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 545 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 546 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 547 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 548 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 549 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 550 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 551 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 552 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 553 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 554 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 555 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 556 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 557 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 558 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 559 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 560 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 561 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 562 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 563 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 564 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 565 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 566 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 567 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 568 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 569 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 570 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 571 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 572 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 573 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 574 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 575 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 576 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 577 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 578 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 579 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 580 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 581 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 582 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 583 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 584 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 585 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 586 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 587 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 588 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 589 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 590 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 591 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 592 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 593 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 594 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 595 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 596 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 597 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 598 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 599 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 600 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 601 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 602 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 603 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 604 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 605 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 606 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 607 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 608 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 609 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 610 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 611 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 612 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 613 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 614 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 615 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 616 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 617 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 618 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 619 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 620 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 621 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 622 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 623 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 624 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 625 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 626 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 627 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 628 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 629 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 636 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 637 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 640 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 641 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 642 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 643 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 644 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 645 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 646 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 647 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 648 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 649 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 650 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 651 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 652 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 653 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 660 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 661 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 664 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 665 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 666 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 667 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 668 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 669 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 670 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 671 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 672 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 673 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 674 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 675 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 676 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 677 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 678 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 679 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 682 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 1 for vertex 683 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 684 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 685 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 688 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 689 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 690 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 691 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 692 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 693 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 694 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 695 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 696 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 697 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 698 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 699 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 700 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 701 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 702 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 703 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 704 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 705 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 706 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 707 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 708 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 709 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 710 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 711 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 712 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 713 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 714 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 715 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 716 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 717 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 718 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 719 is out of MPI rank bounds [0, 0]. Assigning to rank 0.
+Rank 0: Calculated scatter counts and displacements.
+Demangled: 'addr=<0x440571>'
+Rank 0: Received 720 vertex indices.
+Rank 0: Stage 3: Precomputing inv/rpos tables...
+Rank 0: Precomputation finished.
+Rank 0: Scatter + Precompute duration: 6 ms
+Rank 0: Stage 4: Building local ISTs (t=1 to 5) using 4 OpenMP threads...
+Demangled: 'addr=<0x440c85>'
+Growing stack: depth=100, size=45600
+Demangled: 'addr=<0x440ad4>'
+Demangled: 'addr=<0x440728>'
+Growing stack: depth=100, size=45600
+Growing stack: depth=100, size=45600
+Rank 0: Finished building all local ISTs.
+Rank 0: Local IST build duration: 49 ms
+
+Rank 0: Stage 5: Gathering local IST results...
+Rank 0: Gathered results for IST t=1
+Rank 0: Gathered results for IST t=2
+Rank 0: Gathered results for IST t=3
+Rank 0: Gathered results for IST t=4
+Rank 0: Gathered results for IST t=5
+Rank 0: Finished gathering all IST results.
+Rank 0: Gather duration: 0 ms
+
+Rank 0: Stage 6: Repairing and Writing ISTs (t=1 to 5)...
+Rank 0: Reordered gathered ISTs to match original vertex indices.
+
+Rank 0: Processing IST t=1...
+Rank 0: Repairing tree t=1...
+Rank 0: Starting repair pass 1
+Demangled: 'addr=<0x44126b>'
+Demangled: 'addr=<0x441125>'
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=1.
+Demangled: 'addr=<0x43f4dc>'
+Rank 0: Written IST t=1 text representation to openMp/ist_t1.txt
+Demangled: 'addr=<0x4420d2>'
+Rank 0: Written IST t=1 definition to openMp/ist_t1.dot
+Rank 0: Skipped IST t=1 PNG generation (n > 5).
+
+Rank 0: Processing IST t=2...
+Rank 0: Repairing tree t=2...
+Rank 0: Starting repair pass 1
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=2.
+Rank 0: Written IST t=2 text representation to openMp/ist_t2.txt
+Rank 0: Written IST t=2 definition to openMp/ist_t2.dot
+Rank 0: Skipped IST t=2 PNG generation (n > 5).
+
+Rank 0: Processing IST t=3...
+Rank 0: Repairing tree t=3...
+Rank 0: Starting repair pass 1
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=3.
+Rank 0: Written IST t=3 text representation to openMp/ist_t3.txt
+Rank 0: Written IST t=3 definition to openMp/ist_t3.dot
+Rank 0: Skipped IST t=3 PNG generation (n > 5).
+
+Rank 0: Processing IST t=4...
+Rank 0: Repairing tree t=4...
+Rank 0: Starting repair pass 1
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=4.
+Rank 0: Written IST t=4 text representation to openMp/ist_t4.txt
+Rank 0: Written IST t=4 definition to openMp/ist_t4.dot
+Rank 0: Skipped IST t=4 PNG generation (n > 5).
+
+Rank 0: Processing IST t=5...
+Rank 0: Repairing tree t=5...
+Rank 0: Starting repair pass 1
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=5.
+Rank 0: Written IST t=5 text representation to openMp/ist_t5.txt
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+Rank 0: Written IST t=5 definition to openMp/ist_t5.dot
+Rank 0: Skipped IST t=5 PNG generation (n > 5).
+
+Rank 0: Stage 6 (Repair & Write) duration: 147 ms
+
+============================================
+ Total Execution Time: 235 ms
+============================================
+TAU: flushing asynchronous GPU events...
+TAU<0,3>: TauProfiler_StoreData
+TAU<0,3>: TauProfiler_DumpData
+Creating Directories
+[pid=105499], TAU: Writing B profile ./profile.0.0.3, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=105499], TAU: Uses MPI Rank=0
+TAU: <Node=0.Thread=0>:<pid=105499>: .TAU application initiated TauProfiler_StoreData
+TAU<0,2>: TauProfiler_StoreData
+TAU<0,2>: TauProfiler_DumpData
+[pid=105499], TAU: Writing B profile ./profile.0.0.2, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=105499], TAU: Uses MPI Rank=0
+TAU: <Node=0.Thread=0>:<pid=105499>: .TAU application initiated TauProfiler_StoreData
+TAU<0,1>: TauProfiler_StoreData
+TAU<0,1>: TauProfiler_DumpData
+[pid=105499], TAU: Writing B profile ./profile.0.0.1, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=105499], TAU: Uses MPI Rank=0
+TAU: <Node=0.Thread=0>:<pid=105499>: .TAU application initiated TauProfiler_StoreData
+TAU<0,0>: TauProfiler_StoreData
+TAU<0,0>: TauProfiler_DumpData
+[pid=105499], TAU: Writing B profile ./profile.0.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=105499], TAU: Uses MPI Rank=0
+TAU: <Node=0.Thread=0>:<pid=105499>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!

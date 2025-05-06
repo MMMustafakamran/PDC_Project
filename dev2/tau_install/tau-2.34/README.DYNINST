@@ -1,0 +1,46 @@
+Using TAU with DyninstAPI
+-------------------------
+Configuring and installing DyninstAPI
+
+./configure -bfd=download -dyninst=download
+
+export DYNINSTAPI_RT_LIB=<taudir>/<arch>/dyninst-12.3.0-working/lib/libdyninstAPI_RT.so
+export LD_LIBRARY_PATH=<taudir>/<arch>/lib:$DYNINST_ROOT/$PLATFORM/lib
+
+make install 
+
+
+If you're using DyninstAPI with an MPI application (works under Linux with 
+MPICH), you need to follow these steps:
+
+% tau_run -T mpi,<options> a.out -o a.inst
+
+reads a.out, instruments it and rewrites the binary image as a.inst
+NOTE: The binary rewriting feature has been tested under Linux x86_64
+with the application binary files created with the gnu compilers. 
+
+SELECTIVE INSTRUMENTATION FEATURES:
+-----------------------------------
+tau_run takes a -f <selective> instrumentation specification file option. This
+allows the user to specify which routines and/or files should be included or
+excluded. If a user wishes to only instrument routines main and foo in the 
+binary, a file with
+BEGIN_INCLUDE_LIST
+main
+foo
+END_INCLUDE_LIST
+can be made and specified with the -f option. Other tags (like 
+BEGIN_INCLUDE_LIST) include BEGIN_EXCLUDE_LIST/END_EXCLUDE_LIST (the routines
+specified between these are excluded from instrumentation, and 
+BEGIN_FILE_INCLUDE_LIST/END_FILE_INCLUDE_LIST for specifying a list of files
+for including (only these files are instrumented). e.g., 
+BEGIN_FILE_INCLUDE_LIST
+app_main.cpp
+f*.cpp
+END_FILE_INCLUDE_LIST
+Note that you can specify the file name with wildcard characters (* and ?). 
+Also, BEGIN_FILE_EXCLUDE_LIST/END_FILE_EXCLUDE_LIST can be used to exclude 
+the list of files (*.so for instance). You may specify either include or excludelists but not both. The selective instrumentation file specification is common 
+to DyninstAPI based tau_run and PDT based tau_instrumentor.  
+
+Please direct any questions to tau-bugs@cs.uoregon.edu.

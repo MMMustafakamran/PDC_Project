@@ -1,0 +1,71 @@
+Reading Profile files in profile.*
+
+NODE 0;CONTEXT 0;THREAD 0:
+---------------------------------------------------------------------------------------
+%Time    Exclusive    Inclusive       #Call      #Subrs  Inclusive Name
+              msec   total msec                          usec/call 
+---------------------------------------------------------------------------------------
+ 83.6        6,642        6,719           6       30025    1119918 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x44126b> 
+ 83.6        6,642        6,719           6       30025    1119918 addr=<0x44126b> 
+  3.2          258          258           1           0     258823 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Init() 
+  3.2          258          258           1           0     258823 MPI_Init() 
+100.0          117        8,035           1       90754    8035832 .TAU application => taupreload_main => addr=<0x442ac8> 
+100.0          117        8,035           1       90754    8035832 addr=<0x442ac8> 
+  0.6           47           47           1           0      47109 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Finalize() 
+  0.6           47           47           1           0      47109 MPI_Finalize() 
+  0.5           41           41           1           0      41242 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x43f69f> 
+  0.5           41           41           1           0      41242 addr=<0x43f69f> 
+  0.3           25           25           1           0      25266 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x43fad3> 
+  0.3           25           25           1           0      25266 addr=<0x43fad3> 
+  0.1           10           10           1           0      10753 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x44204e> 
+  0.1           10           10           1           0      10753 addr=<0x44204e> 
+  1.9           42          149           6       30240      24896 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x4420d2> 
+  1.9           42          149           6       30240      24896 addr=<0x4420d2> 
+  0.0            1            1           1           0       1986 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x440571> 
+  0.0            1            1           1           0       1986 addr=<0x440571> 
+  0.0            1            1           1           0       1855 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x43f31a> 
+  0.0            1            1           1           0       1855 addr=<0x43f31a> 
+100.0        0.704        8,037           1           2    8037056 .TAU application
+  0.0        0.245        0.403           1           1        403 .TAU application => addr=<0x4458df> 
+  0.0        0.245        0.403           1           1        403 addr=<0x4458df> 
+  0.0        0.158        0.158           1           0        158 .TAU application => addr=<0x4458df> => addr=<0x445793> 
+  0.0        0.158        0.158           1           0        158 addr=<0x445793> 
+100.0        0.117        8,035           1           1    8035949 .TAU application => taupreload_main
+100.0        0.117        8,035           1           1    8035949 taupreload_main
+  0.0        0.066        0.074           1           1         74 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Scatterv() 
+  0.0        0.066        0.074           1           1         74 MPI_Scatterv() 
+  0.0        0.025        0.025           1           0         25 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Comm_rank() 
+  0.0        0.025        0.025           1           0         25 MPI_Comm_rank() 
+  0.0        0.111        0.135           6           6         22 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Gatherv() 
+  0.0        0.111        0.135           6           6         22 MPI_Gatherv() 
+  0.0         0.08        0.111           5           5         22 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Bcast() 
+  0.0         0.08        0.111           5           5         22 MPI_Bcast() 
+  0.0        0.011        0.011           1           0         11 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Comm_size() 
+  0.0        0.011        0.011           1           0         11 MPI_Comm_size() 
+  0.0        0.008        0.008           1           0          8 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Scatterv() => MPI Collective Sync 
+  0.0        0.031        0.031           5           0          6 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Bcast() => MPI Collective Sync 
+  0.0        0.063        0.063          12           0          5 MPI Collective Sync 
+  0.0        0.028        0.028           7           0          4 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Barrier() 
+  0.0        0.024        0.024           6           0          4 .TAU application => taupreload_main => addr=<0x442ac8> => MPI_Gatherv() => MPI Collective Sync 
+  0.0        0.028        0.028           7           0          4 MPI_Barrier() 
+  2.6          207          207       52553           0          4 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x440c85> => addr=<0x440ad4> => addr=<0x440728> 
+  2.6          207          207       52553           0          4 addr=<0x440728> 
+  1.3          106          106       30240           0          4 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x4420d2> => addr=<0x43f4dc> 
+  4.0          317          317       90714           0          3 addr=<0x43f4dc> 
+  2.6          210          210       60474           0          3 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x43f4dc> 
+  5.6           95          451       30240       52553         15 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x440c85> 
+  5.6           95          451       30240       52553         15 addr=<0x440c85> 
+  4.4          148          356       52553       52553          7 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x440c85> => addr=<0x440ad4> 
+  4.4          148          356       52553       52553          7 addr=<0x440ad4> 
+  1.0           76           76       30025           0          3 .TAU application => taupreload_main => addr=<0x442ac8> => addr=<0x44126b> => addr=<0x441125> 
+  1.0           76           76       30025           0          3 addr=<0x441125> 
+---------------------------------------------------------------------------------------
+
+USER EVENTS Profile :NODE 0, CONTEXT 0, THREAD 0
+---------------------------------------------------------------------------------------
+NumSamples   MaxValue   MinValue  MeanValue  Std. Dev.  Event Name
+---------------------------------------------------------------------------------------
+         5  2.016E+04          1       4035       8063  Message size for broadcast
+         6  2.016E+04  2.016E+04  2.016E+04          0  Message size for gather
+         1  2.016E+04  2.016E+04  2.016E+04          0  Message size for scatter
+---------------------------------------------------------------------------------------

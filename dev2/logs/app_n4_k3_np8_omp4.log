@@ -1,0 +1,835 @@
+Trying ./tau.conf
+TAU: VERBOSE enabled
+TAU: VERBOSE RANK enabled
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+Growing stack: depth=100, size=45600
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+Trying ./tau.conf
+TAU: VERBOSE enabled
+Trying ./tau.conf
+TAU: VERBOSE enabled
+Trying ./tau.conf
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+TAU: VERBOSE enabled
+TAU: VERBOSE RANK enabled
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+TAU: Supporting dynamic allocation of threads
+Growing stack: depth=100, size=45600
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: VERBOSE RANK enabled
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Growing stack: depth=100, size=45600
+TAU: Tracing Disabled
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+Growing stack: depth=100, size=45600
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+Trying ./tau.conf
+TAU: VERBOSE enabled
+TAU: VERBOSE RANK enabled
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+Growing stack: depth=100, size=45600
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+Trying ./tau.conf
+TAU: VERBOSE enabled
+TAU: VERBOSE RANK enabled
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+Growing stack: depth=100, size=45600
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+Trying ./tau.conf
+TAU: VERBOSE enabled
+TAU: VERBOSE RANK enabled
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+Growing stack: depth=100, size=45600
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+Trying ./tau.conf
+TAU: VERBOSE enabled
+TAU: VERBOSE RANK enabled
+TAU: Supporting dynamic allocation of threads
+TAU: OMPT Finalize Tool Enabled
+TAU: PROFILE PREFIX is "(null)"
+TAU: PROFILEDIR is "."
+TAU: TRACEDIR is "."
+TAU: Tracing Disabled
+TAU: Trace format is tau
+TAU: Profiling Enabled
+TAU: Current Timer Exit Enabled
+TAU: Callpath Profiling Enabled
+TAU: Thread Context Disabled
+TAU: Overhead Compensation Disabled
+TAU: Callsite Depth Limit = 1
+TAU: Comm Matrix Disabled
+TAU: Message Tracking Disabled
+TAU: Callpath Depth = 10
+TAU: Throttling Enabled
+TAU: Throttle PerCall = 10
+TAU: Throttle NumCalls = 100000
+TAU: SIGUSR1 Action: dump profiles
+TAU: Output Format: profile
+TAU: METRICS is "TIME"
+TAU: MPI_T_CVAR_METRICS is not set
+TAU: MPI_T_CVAR_VALUES is not set
+TAU: TAU_PLUGINS_PATH is not set
+TAU: TAU_PLUGINS is not set
+TAU: OpenMP Runtime Support Enabled
+TAU: OpenMP Runtime Support States Disabled
+TAU: OpenMP Runtime Support Events Enabled
+TAU: Not sampling TAU overhead
+TAU: Sampling Disabled
+TAU: MEMMGR_MAX_BLOCKS = 64
+TAU: Precomputation of statistics Enabled
+TAU: CUPTI API tracking: runtime
+TAU: tracking CUDA instructions: 
+TAU: tracking CUDA CDP kernels Disabled
+TAU: tracking CUDA UNIFIED MEMORY Disabled
+TAU: tracking CUDA SASS Disabled
+TAU: output CUDA CSV Disabled
+TAU: CUDA binary exe not provided: 
+TAU: tracking CUDA Environment Disabled
+TAU: BFD Lookup Enabled
+TAU: Metadata Merging Disabled
+TAU: Metadata Enabled
+TAU: Memory Class Tracking Callpath Disabled
+TAU: MEM_CLASSES is not set
+TAU: TAU_EXEC_ARGS is " -T mpi,openmp"
+TAU: TAU_EXEC_PATH is "/home/fatima/tau2/x86_64/bin/tau_exec"
+TAU: Initialized TAU (TAU_VERBOSE=1)
+entering TauMetrics_init
+entering metricv_add, adding metric TIME
+exiting metricv_add, adding metric TIME
+TAU: Using metric: TIME
+exiting TauMetrics_init
+Growing stack: depth=100, size=45600
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Demangled: 'addr=<0x4458df>'
+Demangled: 'addr=<0x445793>'
+Demangled: 'addr=<0x442ac8>'
+MPI_Init Initializing with PMPI_Init
+============================================
+ Running IST Generation for B_n (n=4)
+ MPI Processes: 8
+ OpenMP Threads per process: 4
+ METIS Partitions (k): 3
+ Output Directory: openMp
+============================================
+Demangled: 'addr=<0x44204e>'
+Rank 0: Found `dot` command. PNG generation enabled (for n <= 5).
+Rank 0: Output directory 'openMp' already exists.
+
+Rank 0: Stage 1: Generating Vertices and Adjacency List...
+Rank 0: Generated 24 vertices (permutations).
+Rank 0: Generated adjacency list.
+
+Rank 0: Stage 2: Partitioning Graph using METIS (k=3)...
+Rank 0: Writing graph to METIS format file: openMp/bn.metis
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x43f69f>'
+Demangled: 'addr=<0x43fad3>'
+Rank 0: Finished writing METIS file. Nodes: 24, Edges: 36
+Rank 0: Running METIS partitioner: gpmetis "openMp/bn.metis" 3
+******************************************************************************
+METIS 5.0 Copyright 1998-13, Regents of the University of Minnesota
+ (HEAD: , Built on: Mar 24 2022, 16:16:52)
+ size of idx_t: 32bits, real_t: 32bits, idx_t *: 64bits
+
+Graph Information -----------------------------------------------------------
+ Name: openMp/bn.metis, #Vertices: 24, #Edges: 36, #Parts: 3
+
+Options ---------------------------------------------------------------------
+ ptype=kway, objtype=cut, ctype=shem, rtype=greedy, iptype=metisrb
+ dbglvl=0, ufactor=1.030, no2hop=NO, minconn=NO, contig=NO, nooutput=NO
+ seed=-1, niter=10, ncuts=1
+
+Direct k-way Partitioning ---------------------------------------------------
+ - Edgecut: 9, communication volume: 18.
+
+ - Balance:
+     constraint #0:  1.000 out of 0.125
+
+ - Most overweight partition:
+     pid: 0, actual: 8, desired: 8, ratio: 1.00.
+
+ - Subdomain connectivity: max: 2, min: 2, avg: 2.00
+
+ - Each partition is contiguous.
+
+Timing Information ----------------------------------------------------------
+  I/O:          		   0.002 sec
+  Partitioning: 		   0.001 sec   (METIS time)
+  Reporting:    		   0.000 sec
+
+Memory Information ----------------------------------------------------------
+  Max memory used:		   0.053 MB
+******************************************************************************
+Rank 0: gpmetis finished.
+Rank 0: Reading METIS partition file: openMp/bn.metis.part.3
+Rank 0: Successfully read partition data.
+Rank 0: Graph partitioning complete.
+Rank 0: Stages 1 & 2 duration: 19 ms
+
+Rank 0: Broadcasted N and partition data to all ranks.
+Rank 0: Calculated scatter counts and displacements.
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x440571>'
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x440571>'
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x440571>'
+Demangled: 'addr=<0x440571>'
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x440571>'
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x440571>'
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x440571>'
+Demangled: 'addr=<0x43f31a>'
+Demangled: 'addr=<0x440571>'
+Rank 0: Received 8 vertex indices.
+Rank 0: Stage 3: Precomputing inv/rpos tables...
+Rank 1: Received 8 vertex indices.
+Rank 1: Stage 3: Precomputing inv/rpos tables...
+Rank 2: Received 8 vertex indices.
+Rank 2: Stage 3: Precomputing inv/rpos tables...
+Rank 3: Received 0 vertex indices.
+Rank 3: Stage 3: Precomputing inv/rpos tables...
+Rank 4: Received 0 vertex indices.
+Rank 4: Stage 3: Precomputing inv/rpos tables...
+Rank 5: Received 0 vertex indices.
+Rank 5: Stage 3: Precomputing inv/rpos tables...
+Rank 6: Received 0 vertex indices.
+Rank 6: Stage 3: Precomputing inv/rpos tables...
+Rank 7: Received 0 vertex indices.
+Rank 7: Stage 3: Precomputing inv/rpos tables...
+Rank 2: Precomputation finished.
+Rank 2: Scatter + Precompute duration: 36 ms
+Rank 2: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Rank 7: Precomputation finished.
+Rank 7: Scatter + Precompute duration: 38 ms
+Rank 7: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Rank 1: Precomputation finished.
+Rank 1: Scatter + Precompute duration: 51 ms
+Rank 1: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Rank 5: Precomputation finished.
+Rank 5: Scatter + Precompute duration: 51 ms
+Rank 5: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Demangled: 'addr=<0x440c85>'
+Demangled: 'addr=<0x440ad4>'
+Demangled: 'addr=<0x440728>'
+Growing stack: depth=100, size=45600
+Growing stack: depth=100, size=45600
+Demangled: 'addr=<0x440c85>'
+Growing stack: depth=100, size=45600
+Demangled: 'addr=<0x440ad4>'
+Demangled: 'addr=<0x440728>'
+Rank 2: Finished building all local ISTs.
+Rank 2: Local IST build duration: 20 ms
+Rank 6: Precomputation finished.
+Rank 6: Scatter + Precompute duration: 58 ms
+Rank 6: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Rank 0: Precomputation finished.
+Rank 0: Scatter + Precompute duration: 38 ms
+Rank 0: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Demangled: 'addr=<0x440c85>'
+Rank 4: Precomputation finished.
+Rank 4: Scatter + Precompute duration: 59 ms
+Rank 4: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Demangled: 'addr=<0x440ad4>'
+Demangled: 'addr=<0x440728>'
+Rank 3: Precomputation finished.
+Rank 3: Scatter + Precompute duration: 60 ms
+Rank 3: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Growing stack: depth=100, size=45600
+Rank 1: Finished building all local ISTs.
+Rank 1: Local IST build duration: 14 ms
+Rank 7: Finished building all local ISTs.
+Rank 7: Local IST build duration: 26 ms
+Rank 0: Finished building all local ISTs.
+Rank 0: Local IST build duration: 17 ms
+
+Rank 0: Stage 5: Gathering local IST results...
+Rank 4: Finished building all local ISTs.
+Rank 4: Local IST build duration: 18 ms
+Rank 6: Finished building all local ISTs.
+Rank 6: Local IST build duration: 20 ms
+Rank 3: Finished building all local ISTs.
+Rank 3: Local IST build duration: 28 ms
+Rank 5: Finished building all local ISTs.
+Rank 5: Local IST build duration: 37 ms
+Rank 0: Gathered results for IST t=1
+Rank 0: Gathered results for IST t=2
+Rank 0: Gathered results for IST t=3
+Rank 0: Finished gathering all IST results.
+Rank 0: Gather duration: 111 ms
+
+Rank 0: Stage 6: Repairing and Writing ISTs (t=1 to 3)...
+Rank 0: Reordered gathered ISTs to match original vertex indices.
+
+Rank 0: Processing IST t=1...
+Rank 0: Repairing tree t=1...
+Demangled: 'addr=<0x44126b>'
+Rank 0: Starting repair pass 1
+Demangled: 'addr=<0x441125>'
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=1.
+Demangled: 'addr=<0x43f4dc>'
+Rank 0: Written IST t=1 text representation to openMp/ist_t1.txt
+Demangled: 'addr=<0x4420d2>'
+Rank 0: Written IST t=1 definition to openMp/ist_t1.dot
+Rank 0: Attempting to generate PNG: dot -Tpng "openMp/ist_t1.dot" -o "openMp/ist_t1.png"
+Rank 0: Written IST t=1 visualization to openMp/ist_t1.png
+
+Rank 0: Processing IST t=2...
+Rank 0: Repairing tree t=2...
+Rank 0: Starting repair pass 1
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=2.
+Rank 0: Written IST t=2 text representation to openMp/ist_t2.txt
+Rank 0: Written IST t=2 definition to openMp/ist_t2.dot
+Rank 0: Attempting to generate PNG: dot -Tpng "openMp/ist_t2.dot" -o "openMp/ist_t2.png"
+Rank 0: Written IST t=2 visualization to openMp/ist_t2.png
+
+Rank 0: Processing IST t=3...
+Rank 0: Repairing tree t=3...
+Rank 0: Starting repair pass 1
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=3.
+Rank 0: Written IST t=3 text representation to openMp/ist_t3.txt
+Rank 0: Written IST t=3 definition to openMp/ist_t3.dot
+Rank 0: Attempting to generate PNG: dot -Tpng "openMp/ist_t3.dot" -o "openMp/ist_t3.png"
+Rank 0: Written IST t=3 visualization to openMp/ist_t3.png
+
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+Rank 0: Stage 6 (Repair & Write) duration: 393 ms
+
+============================================
+ Total Execution Time: 599 ms
+============================================
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+TAU: Call MPI_Finalize()
+TAU: flushing asynchronous GPU events...
+TAU: flushing asynchronous GPU events...
+TAU<6,0>: TauProfiler_StoreData
+TAU<6,0>: TauProfiler_DumpData
+Creating Directories
+TAU: flushing asynchronous GPU events...
+TAU<4,0>: TauProfiler_StoreData
+TAU<4,0>: TauProfiler_DumpData
+Creating Directories
+[pid=84408], TAU: Writing B profile ./profile.4.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84408], TAU: Uses MPI Rank=4
+TAU: <Node=4.Thread=0>:<pid=84408>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!
+TAU: flushing asynchronous GPU events...
+TAU<3,0>: TauProfiler_StoreData
+TAU<3,0>: TauProfiler_DumpData
+Creating Directories
+[pid=84399], TAU: Writing B profile ./profile.3.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84399], TAU: Uses MPI Rank=3
+TAU: <Node=3.Thread=0>:<pid=84399>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!
+TAU: flushing asynchronous GPU events...
+TAU<7,0>: TauProfiler_StoreData
+TAU<7,0>: TauProfiler_DumpData
+Creating Directories
+TAU: flushing asynchronous GPU events...
+TAU<0,1>: TauProfiler_StoreData
+TAU<0,1>: TauProfiler_DumpData
+Creating Directories
+[pid=84416], TAU: Writing B profile ./profile.0.0.1, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84416], TAU: Uses MPI Rank=0
+TAU: <Node=0.Thread=0>:<pid=84416>: .TAU application initiated TauProfiler_StoreData
+TAU<0,0>: TauProfiler_StoreData
+TAU<0,0>: TauProfiler_DumpData
+[pid=84416], TAU: Writing B profile ./profile.0.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84416], TAU: Uses MPI Rank=0
+[pid=84419], TAU: Writing B profile ./profile.7.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84419], TAU: Uses MPI Rank=7
+TAU: <Node=0.Thread=0>:<pid=84416>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!
+TAU: <Node=7.Thread=0>:<pid=84419>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!
+[pid=84442], TAU: Writing B profile ./profile.6.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84442], TAU: Uses MPI Rank=6
+TAU: <Node=6.Thread=0>:<pid=84442>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!
+TAU: flushing asynchronous GPU events...
+TAU<5,0>: TauProfiler_StoreData
+TAU<5,0>: TauProfiler_DumpData
+Creating Directories
+[pid=84431], TAU: Writing B profile ./profile.5.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84431], TAU: Uses MPI Rank=5
+TAU: <Node=5.Thread=0>:<pid=84431>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!
+TAU: flushing asynchronous GPU events...
+TAU<2,2>: TauProfiler_StoreData
+TAU<2,2>: TauProfiler_DumpData
+Creating Directories
+[pid=84417], TAU: Writing B profile ./profile.2.0.2, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84417], TAU: Uses MPI Rank=2
+TAU: <Node=2.Thread=0>:<pid=84417>: .TAU application initiated TauProfiler_StoreData
+TAU<2,1>: TauProfiler_StoreData
+TAU<2,1>: TauProfiler_DumpData
+[pid=84417], TAU: Writing B profile ./profile.2.0.1, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84417], TAU: Uses MPI Rank=2
+TAU: <Node=2.Thread=0>:<pid=84417>: .TAU application initiated TauProfiler_StoreData
+TAU<2,0>: TauProfiler_StoreData
+TAU<2,0>: TauProfiler_DumpData
+TAU: flushing asynchronous GPU events...
+TAU<1,1>: TauProfiler_StoreData
+TAU<1,1>: TauProfiler_DumpData
+Creating Directories
+[pid=84409], TAU: Writing B profile ./profile.1.0.1, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84409], TAU: Uses MPI Rank=1
+TAU: <Node=1.Thread=0>:<pid=84409>: .TAU application initiated TauProfiler_StoreData
+TAU<1,0>: TauProfiler_StoreData
+TAU<1,0>: TauProfiler_DumpData
+[pid=84417], TAU: Writing B profile ./profile.2.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84417], TAU: Uses MPI Rank=2
+TAU: <Node=2.Thread=0>:<pid=84417>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!
+[pid=84409], TAU: Writing B profile ./profile.1.0.0, cwd = /home/fatima/Desktop/PDC_Project/dev2
+[pid=84409], TAU: Uses MPI Rank=1
+TAU: <Node=1.Thread=0>:<pid=84409>: .TAU application initiated TauProfiler_StoreData
+Tau_shutdown!
+Entering Tau_destructor_trigger...
+TAU: flushing asynchronous GPU events...
+Exiting Tau_destructor_trigger!

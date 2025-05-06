@@ -1,0 +1,8 @@
+
+This example shows how to use the monitoring plugin on Summit to capture a
+timeline of memory and cpu/gpu utilization data from a sample code.
+
+To run with applications built with nvhpc, see the jobscript_nvhpc example.
+To run with applications built with gcc, see the jobscript_gcc example.
+Make sure that with your appliation, you use the provided tau_monitoring.json
+file, as-is.

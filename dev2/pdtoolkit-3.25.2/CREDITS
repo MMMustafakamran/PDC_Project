@@ -1,0 +1,58 @@
+/*******************************************************************
+ *                                                                 *
+ *              Program Database Toolkit Credits       		   *
+ *                           Version 3.24                          *
+ *                                                                 *
+ *******************************************************************
+ *    For release notes, see README.                               *
+ *    For licensing info, see LICENSE.                             *
+ *    For format and contents of program database (PDB) files,     *
+ *        see doc/converter.txt.                                   *
+ *    For more information, including updates and new releases,    *
+ *        see http://www.cs.uoregon.edu/research/pdt               *
+ *    For help, reporting bugs, and making suggestions,            *
+ *        please send e-mail to tau-bugs@cs.uoregon.edu            *
+ *******************************************************************/
+
+Developers:
+------------------------
+Sameer Shende, University of Oregon
+    sameer@cs.uoregon.edu
+Nichols Chaimov, University of Oregon
+    nchaimov@uoregon.edu
+Soren Rasmussen, University of Oregon
+    srasmus2@uoregon.edu
+Bernd Mohr, Jülich Supercomputing Center, NIC, Germany
+    b.mohr@fz-juelich.de
+    DUCTAPE
+Alan Morris, University of Utah (ex-UO)
+Craig Rasmussen, University of Oregon
+    rasmus@uoregon.edu
+Matt Sottile, Galois (ex-UO)
+    matt@galois.com
+Robert Bell, EGI, (ex-UO)
+    bertie@cs.uoregon.edu
+Kathleen Lindlan, University of Oregon
+    klindlan@cs.uoregon.edu
+    IL Analyzers
+
+
+Principal Investigators:
+------------------------
+
+Prof. Allen Malony, CIS, University of Oregon
+Sameer Shende, Performance Research Lab, University of Oregon
+
+Thanks :
+--------
+
+J. Stephen Adamczyk, Edison Design Group
+Dan Quinlan, Lawrence Livermore National Laboratory
+Bruce Leasure, Kuck & Associates, Inc, Intel.
+Rod Oldehoeft, Los Alamos National Laboratory
+Arch Robison, Kuck & Associates, Inc.
+John H. Spicer, Edison Design Group
+Peter Beckman, Argonne National Laboratory
+Prof. Janice Cuny, NSF.
+Monty Swaiss, Cleanscape Software International
+

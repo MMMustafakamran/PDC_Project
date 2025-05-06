@@ -1,0 +1,28 @@
+0) Update develop and master, merge develop into master
+
+update the version number in CMakeLists.txt, src/apex/CMakeLists.hpx and doc/Doxyfile.in and docs/webdocs/install.md
+
+git checkout develop
+git pull
+git checkout master
+git pull
+git merge develop
+
+1) Generate a changelog from the last tag:
+
+git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:'<li> <a href="http://github.com/UO-OACISS/apex/commit/%H">view commit &bull;</a> %s</li> ' --reverse > changelog.txt
+
+2) create a new tag
+
+git tag -a -F changelog.txt v2.1.1
+
+3) push that tag, merge iwth master
+
+git checkout master
+git pull
+git merge develop
+git checkout develop
+git push origin
+git push --tags origin
+
+4) Update github, make release

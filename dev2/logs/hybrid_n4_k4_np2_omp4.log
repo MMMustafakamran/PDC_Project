@@ -1,0 +1,133 @@
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+TAU Warning: BFD is not available in at least one part of this TAU-instrumented application! Please check to see if BFD is not shared or not present. Expect some missing BFD functionality.
+TAU Warning: Comp_gnu - BFD is not available during TAU build. Symbols may not be resolved!
+Warning: Number of partitions k=4 is greater than the number of MPI processes=2. METIS will run, but process mapping might be uneven.
+============================================
+ Running IST Generation for B_n (n=4)
+ MPI Processes: 2
+ OpenMP Threads per process: 4
+ METIS Partitions (k): 4
+ Output Directory: openMp
+============================================
+Rank 0: Warning - GraphViz `dot` command not found in PATH. Skipping ALL PNG generation.
+Rank 0: Output directory 'openMp' already exists.
+
+Rank 0: Stage 1: Generating Vertices and Adjacency List...
+Rank 0: Generated 24 vertices (permutations).
+Rank 0: Generated adjacency list.
+
+Rank 0: Stage 2: Partitioning Graph using METIS (k=4)...
+Rank 0: Writing graph to METIS format file: openMp/bn.metis
+Rank 0: Finished writing METIS file. Nodes: 24, Edges: 36
+Rank 0: Running METIS partitioner: gpmetis "openMp/bn.metis" 4
+******************************************************************************
+METIS 5.0 Copyright 1998-13, Regents of the University of Minnesota
+ (HEAD: , Built on: Mar 24 2022, 16:16:52)
+ size of idx_t: 32bits, real_t: 32bits, idx_t *: 64bits
+
+Graph Information -----------------------------------------------------------
+ Name: openMp/bn.metis, #Vertices: 24, #Edges: 36, #Parts: 4
+
+Options ---------------------------------------------------------------------
+ ptype=kway, objtype=cut, ctype=shem, rtype=greedy, iptype=metisrb
+ dbglvl=0, ufactor=1.030, no2hop=NO, minconn=NO, contig=NO, nooutput=NO
+ seed=-1, niter=10, ncuts=1
+
+Direct k-way Partitioning ---------------------------------------------------
+ - Edgecut: 12, communication volume: 24.
+
+ - Balance:
+     constraint #0:  1.000 out of 0.167
+
+ - Most overweight partition:
+     pid: 0, actual: 6, desired: 6, ratio: 1.00.
+
+ - Subdomain connectivity: max: 3, min: 3, avg: 3.00
+
+ - Each partition is contiguous.
+
+Timing Information ----------------------------------------------------------
+  I/O:          		   0.002 sec
+  Partitioning: 		   0.001 sec   (METIS time)
+  Reporting:    		   0.000 sec
+
+Memory Information ----------------------------------------------------------
+  Max memory used:		   0.053 MB
+******************************************************************************
+Rank 0: Warning - METIS partition index 2 for vertex 0 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 1 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 6 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 7 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 8 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 9 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 10 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 11 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 14 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 2 for vertex 15 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 20 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 0: Warning - METIS partition index 3 for vertex 21 is out of MPI rank bounds [0, 1]. Assigning to rank 0.
+Rank 1: Received 6 vertex indices.
+Rank 1: Stage 3: Precomputing inv/rpos tables...
+Rank 0: gpmetis finished.
+Rank 0: Reading METIS partition file: openMp/bn.metis.part.4
+Rank 0: Successfully read partition data.
+Rank 0: Graph partitioning complete.
+Rank 0: Stages 1 & 2 duration: 12 ms
+
+Rank 0: Broadcasted N and partition data to all ranks.
+Rank 0: Calculated scatter counts and displacements.
+Rank 0: Received 18 vertex indices.
+Rank 0: Stage 3: Precomputing inv/rpos tables...
+Rank 0: Precomputation finished.
+Rank 0: Scatter + Precompute duration: 1 ms
+Rank 0: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Rank 0: Finished building all local ISTs.
+Rank 0: Local IST build duration: 1 ms
+
+Rank 0: Stage 5: Gathering local IST results...
+Rank 1: Precomputation finished.
+Rank 1: Scatter + Precompute duration: 16 ms
+Rank 1: Stage 4: Building local ISTs (t=1 to 3) using 4 OpenMP threads...
+Rank 0: Gathered results for IST t=1
+Rank 0: Gathered results for IST t=2
+Rank 0: Gathered results for IST t=3
+Rank 0: Finished gathering all IST results.
+Rank 0: Gather duration: 11 ms
+
+Rank 0: Stage 6: Repairing and Writing ISTs (t=1 to 3)...
+Rank 0: Reordered gathered ISTs to match original vertex indices.
+
+Rank 0: Processing IST t=1...
+Rank 0: Repairing tree t=1...
+Rank 0: Starting repair pass 1
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=1.
+Rank 0: Written IST t=1 text representation to openMp/ist_t1.txt
+Rank 0: Written IST t=1 definition to openMp/ist_t1.dot
+
+Rank 0: Processing IST t=2...
+Rank 0: Repairing tree t=2...
+Rank 0: Starting repair pass 1
+Rank 0: Starting repair pass 2
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=2.
+Rank 0: Written IST t=2 text representation to openMp/ist_t2.txt
+Rank 1: Finished building all local ISTs.
+Rank 1: Local IST build duration: 10 ms
+Rank 0: Written IST t=2 definition to openMp/ist_t2.dot
+
+Rank 0: Processing IST t=3...
+Rank 0: Repairing tree t=3...
+Rank 0: Starting repair pass 1
+Rank 0: Repair process completed. All nodes appear connected.
+Rank 0: Finished repairing tree t=3.
+Rank 0: Written IST t=3 text representation to openMp/ist_t3.txt
+Rank 0: Written IST t=3 definition to openMp/ist_t3.dot
+
+Rank 0: Stage 6 (Repair & Write) duration: 4 ms
+
+============================================
+ Total Execution Time: 35 ms
+============================================

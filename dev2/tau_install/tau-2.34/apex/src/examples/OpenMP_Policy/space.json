@@ -1,0 +1,31 @@
+{
+   "tuning_space":{
+
+      "omp_num_threads":[
+         2,
+         4,
+         8,
+         16,
+         24,
+         32,
+         36
+      ],
+
+      "omp_schedule":[
+         "static",
+         "dynamic",
+         "guided"
+      ],
+
+      "omp_chunk_size":[
+         1,
+         8,
+         32,
+         64,
+         128,
+         256,
+         512
+      ]
+
+   }
+}

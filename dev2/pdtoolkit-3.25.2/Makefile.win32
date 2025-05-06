@@ -1,0 +1,54 @@
+# To use, do "nmake /f makefile.win32"
+
+CFLAGS= /O2 /D "WIN32" /EHsc /GR /TP /nologo
+CC=cl
+INCLUDES= -Iductape\inc
+DEFINES=
+CFLAGS=$(CFLAGS) $(DEFINES) $(INCLUDES)
+LD=link
+LDFLAGS=
+O=.obj
+
+DUCTAPE_SRCS = ductape\lib\pdbClass.cc ductape\lib\pdbCRoutine.cc ductape\lib\pdbFatItem.cc ductape\lib\pdbFile.cc ductape\lib\pdbFRoutine.cc ductape\lib\pdbGroup.cc ductape\lib\pdbGroupField.cc ductape\lib\pdbItem.cc ductape\lib\pdbMacro.cc ductape\lib\pdbMisc.cc ductape\lib\pdbModule.cc ductape\lib\pdbNameSpace.cc ductape\lib\pdbPragma.cc ductape\lib\pdbRead.cc ductape\lib\pdbRoutine.cc ductape\lib\pdbSimpleItem.cc ductape\lib\pdbTemplate.cc ductape\lib\pdbTemplateArg.cc ductape\lib\pdbTemplateItem.cc ductape\lib\pdbType.cc ductape\lib\pdbWrite.cc
+
+DUCTAPE_OBJS= $(DUCTAPE_SRCS:.cc=.obj) 
+
+
+.SUFFIXES: .cc .obj
+
+.cc.obj :
+	$(CC) $(FLAGS) $(CFLAGS) /Fo$@ -c $<
+
+
+all : ductapelib pdbcomment pdbconv pdbhtml pdbmerge pdbstmt pdbtree xmlgen
+
+
+
+cleanup :
+	-del windows\bin\*.ilk windows\bin\*.pdb
+ductapelib : $(DUCTAPE_OBJS)
+	lib /OUT:"Windows/lib/ductape.lib" $(DUCTAPE_OBJS)
+	
+
+pdbcomment :
+	$(CC) $(CFLAGS) /FeWindows\bin\pdbcomment.exe ductape\src\pdbcomment.cc ductape\src\getopt.cpp /link windows\lib\ductape.lib
+
+pdbconv :
+	$(CC) $(CFLAGS) /FeWindows\bin\pdbconv.exe ductape\src\pdbconv.cc ductape\src\getopt.cpp /link windows\lib\ductape.lib
+
+pdbhtml :
+	$(CC) $(CFLAGS) /FeWindows\bin\pdbhtml.exe ductape\src\pdbhtml.cc ductape\src\getopt.cpp /link windows\lib\ductape.lib
+
+pdbmerge :
+	$(CC) $(CFLAGS) /FeWindows\bin\pdbmerge.exe ductape\src\pdbmerge.cc ductape\src\getopt.cpp /link windows\lib\ductape.lib
+
+pdbstmt :
+	$(CC) $(CFLAGS) /FeWindows\bin\pdbstmt.exe ductape\src\pdbstmt.cc ductape\src\getopt.cpp /link windows\lib\ductape.lib
+
+pdbtree :
+	$(CC) $(CFLAGS) /FeWindows\bin\pdbtree.exe ductape\src\pdbtree.cc ductape\src\getopt.cpp /link windows\lib\ductape.lib
+
+xmlgen :
+	$(CC) $(CFLAGS) /FeWindows\bin\xmlgen.exe ductape\src\xmlgen.cc ductape\src\getopt.cpp /link windows\lib\ductape.lib
+
+

@@ -1,0 +1,1 @@
+Usage: mpiexec -n <num_procs> python3 MPI.py <n> <k_partitions>

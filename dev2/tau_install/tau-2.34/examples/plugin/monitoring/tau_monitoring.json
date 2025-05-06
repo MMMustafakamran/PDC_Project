@@ -1,0 +1,48 @@
+{
+  "periodic": true,
+  "node_data_from_all_ranks": true,
+  "monitor_counter_prefix": "",
+  "periodicity seconds": 1.0,
+  "scatterplot": true,
+  "devices_per_node": 6,
+  "devices_per_process": 1,
+  "PAPI metrics": [],
+  "/proc/self/io": {
+    "disable": true
+  },
+  "/proc/stat": {
+    "disable": false,
+    "comment": "This will exclude all core-specific readings.",
+    "exclude": ["^cpu[0-9]+.*"]
+  },
+  "/proc/meminfo": {
+    "disable": false,
+    "comment": "This will include three readings.",
+    "include": [".*MemAvailable.*", ".*MemFree.*", ".*MemTotal.*"]
+  },
+  "/proc/net/dev": {
+    "disable": true,
+    "comment": "This will include only the first ethernet device.",
+    "include": [".*eno1.*"]
+  },
+  "/proc/self/net/dev": {
+    "disable": true,
+    "comment": "This will include only the first ethernet device (from network namespace of which process is a member).",
+    "include": [".*eno1.*"]
+  },
+  "lmsensors": {
+    "disable": true,
+    "comment": "This will include all power readings.",
+    "include": [".*power.*"]
+  },
+  "net": {
+    "disable": true,
+    "comment": "This will include only the first ethernet device.",
+    "include": [".*eno1.*"]
+  },
+  "nvml": {
+    "disable": false,
+    "comment": "This will include only the utilization metrics.",
+    "include": [".*Utilization.*", ".*Memory.*"]
+  }
+}
