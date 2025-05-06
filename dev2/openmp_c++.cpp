@@ -1,5 +1,6 @@
 /*
     Compilation and Execution Example:
+	//mpicxx -fopenmp openmp_c++.cpp -o openmp_ist
 
 
     mpic++ -std=c++11 -O3 -fopenmp openmp_c++.cpp -o openmp_ist
