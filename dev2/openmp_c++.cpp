@@ -25,6 +25,7 @@
 #include <sys/types.h> // For mkdir
 #include <cerrno>      // For errno
 #include <cstring>     // For strerror
+#include <TAU.h>       // For TAU profiling
 
 // --- Platform specific directory creation ---
 #ifdef _WIN32
@@ -100,34 +101,46 @@ std::vector<int> partition_metis(const AdjList& adj, int k) {
         std::cerr << "Error: Cannot partition an empty graph." << std::endl;
         MPI_Abort(MPI_COMM_WORLD, 1);
     }
+
+    // TAU start timing for METIS partitioning
+    TAU_PROFILE_TIMER(timer, "METIS_Partitioning", "", TAU_USER);
+    TAU_PROFILE_START(timer);
+
     std::string metis_input_file = OUTPUT_DIR + "/bn.metis";
     std::string metis_part_file = metis_input_file + ".part." + std::to_string(k);
 
+    // TAU start timing for file writing
+    TAU_PROFILE_TIMER(write_timer, "METIS_FileWriting", "", TAU_USER);
+    TAU_PROFILE_START(write_timer);
+
     std::cout << "Rank 0: Writing graph to METIS format file: " << metis_input_file << std::endl;
     std::ofstream fout(metis_input_file);
-     if (!fout) {
+    if (!fout) {
         std::cerr << "Rank 0: ERROR - Cannot open METIS input file for writing: " << metis_input_file << std::endl;
         MPI_Abort(MPI_COMM_WORLD, 1);
     }
 
-    long long edge_count = 0; // Use long long for potentially large edge counts
+    long long edge_count = 0;
     for (const auto& nbrs : adj) {
         edge_count += nbrs.size();
     }
-    edge_count /= 2; // METIS counts edges once
+    edge_count /= 2;
 
     // METIS format: N M [fmt], fmt=0 means no weights
     fout << N << " " << edge_count << " 0\n";
     for (const auto& nbrs : adj) {
         for (int j : nbrs) {
-            fout << (j + 1) << " "; // METIS uses 1-based indexing
+            fout << (j + 1) << " ";
         }
         fout << "\n";
     }
     fout.close();
-    std::cout << "Rank 0: Finished writing METIS file. Nodes: " << N << ", Edges: " << edge_count << std::endl;
+    TAU_PROFILE_STOP(write_timer);
 
-    // Construct the gpmetis command
+    // TAU start timing for METIS execution
+    TAU_PROFILE_TIMER(exec_timer, "METIS_Execution", "", TAU_USER);
+    TAU_PROFILE_START(exec_timer);
+
     std::string cmd = "gpmetis \"" + metis_input_file + "\" " + std::to_string(k);
     std::cout << "Rank 0: Running METIS partitioner: " << cmd << std::endl;
 
@@ -136,24 +149,67 @@ std::vector<int> partition_metis(const AdjList& adj, int k) {
         std::cerr << "Rank 0: ERROR - gpmetis execution failed! Exit code: " << ret << ". Check METIS installation and file permissions." << std::endl;
         MPI_Abort(MPI_COMM_WORLD, 1);
     }
-     std::cout << "Rank 0: gpmetis finished." << std::endl;
+    TAU_PROFILE_STOP(exec_timer);
 
+    // TAU start timing for reading results
+    TAU_PROFILE_TIMER(read_timer, "METIS_ResultReading", "", TAU_USER);
+    TAU_PROFILE_START(read_timer);
 
     std::vector<int> part(N);
     std::cout << "Rank 0: Reading METIS partition file: " << metis_part_file << std::endl;
     std::ifstream pin(metis_part_file);
-     if (!pin) {
+    if (!pin) {
         std::cerr << "Rank 0: ERROR - Cannot open METIS partition file: " << metis_part_file << ". Check if gpmetis ran successfully." << std::endl;
         MPI_Abort(MPI_COMM_WORLD, 1);
     }
     for (int i = 0; i < N; ++i) {
         if (!(pin >> part[i])) {
-             std::cerr << "Rank 0: ERROR - Failed to read partition data for node " << i << " from " << metis_part_file << std::endl;
-             MPI_Abort(MPI_COMM_WORLD, 1);
+            std::cerr << "Rank 0: ERROR - Failed to read partition data for node " << i << " from " << metis_part_file << std::endl;
+            MPI_Abort(MPI_COMM_WORLD, 1);
         }
     }
     pin.close();
-     std::cout << "Rank 0: Successfully read partition data." << std::endl;
+    TAU_PROFILE_STOP(read_timer);
+
+    // Calculate partition metrics
+    TAU_PROFILE_TIMER(metrics_timer, "METIS_MetricsCalculation", "", TAU_USER);
+    TAU_PROFILE_START(metrics_timer);
+
+    // Calculate partition sizes
+    std::vector<int> partition_sizes(k, 0);
+    for (int p : part) {
+        partition_sizes[p]++;
+    }
+
+    // Calculate load imbalance
+    int max_size = *std::max_element(partition_sizes.begin(), partition_sizes.end());
+    int min_size = *std::min_element(partition_sizes.begin(), partition_sizes.end());
+    double load_imbalance = (max_size - min_size) / (double)max_size;
+
+    // Calculate edge cuts (simplified)
+    int edge_cuts = 0;
+    for (int i = 0; i < N; ++i) {
+        for (int j : adj[i]) {
+            if (part[i] != part[j]) {
+                edge_cuts++;
+            }
+        }
+    }
+    edge_cuts /= 2; // Each edge is counted twice
+
+    // Log metrics
+    std::cout << "Rank 0: METIS Partitioning Metrics:" << std::endl;
+    std::cout << "  - Load Imbalance: " << load_imbalance << std::endl;
+    std::cout << "  - Edge Cuts: " << edge_cuts << std::endl;
+    std::cout << "  - Partition Sizes: ";
+    for (int i = 0; i < k; ++i) {
+        std::cout << partition_sizes[i] << " ";
+    }
+    std::cout << std::endl;
+
+    TAU_PROFILE_STOP(metrics_timer);
+    TAU_PROFILE_STOP(timer);
+
     return part;
 }
 

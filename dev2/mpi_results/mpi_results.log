@@ -1,0 +1,1338 @@
+MPI Test Results
+===============
+
+Running test: n=2, k=2, processes=2
+Timestamp: 2025-05-07 09:34:27
+Execution time: 2.23 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.23 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 1
+  Total edges: 1
+----------------------------------------
+
+Running test: n=2, k=2, processes=3
+Timestamp: 2025-05-07 09:34:35
+Execution time: 0.87 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 0.87 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 1
+  Total edges: 1
+----------------------------------------
+
+Running test: n=2, k=2, processes=4
+Timestamp: 2025-05-07 09:34:41
+Execution time: 0.92 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 0.92 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 1
+  Total edges: 1
+----------------------------------------
+
+Running test: n=3, k=2, processes=2
+Timestamp: 2025-05-07 09:34:46
+Execution time: 0.97 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 0.97 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 2
+  Inter-partition edges: 3
+  Total edges: 5
+
+Tree t=2:
+  Intra-partition edges: 1
+  Inter-partition edges: 4
+  Total edges: 5
+----------------------------------------
+
+Running test: n=3, k=2, processes=3
+Timestamp: 2025-05-07 09:34:52
+Execution time: 1.49 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.49 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 1
+  Inter-partition edges: 4
+  Total edges: 5
+
+Tree t=2:
+  Intra-partition edges: 1
+  Inter-partition edges: 4
+  Total edges: 5
+----------------------------------------
+
+Running test: n=3, k=2, processes=4
+Timestamp: 2025-05-07 09:34:58
+Execution time: 1.12 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.12 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 5
+  Total edges: 5
+
+Tree t=2:
+  Intra-partition edges: 0
+  Inter-partition edges: 5
+  Total edges: 5
+----------------------------------------
+
+Running test: n=3, k=3, processes=2
+Timestamp: 2025-05-07 09:35:03
+Execution time: 1.05 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.05 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 2
+  Inter-partition edges: 3
+  Total edges: 5
+
+Tree t=2:
+  Intra-partition edges: 1
+  Inter-partition edges: 4
+  Total edges: 5
+----------------------------------------
+
+Running test: n=3, k=3, processes=3
+Timestamp: 2025-05-07 09:35:09
+Execution time: 1.19 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.19 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 1
+  Inter-partition edges: 4
+  Total edges: 5
+
+Tree t=2:
+  Intra-partition edges: 1
+  Inter-partition edges: 4
+  Total edges: 5
+----------------------------------------
+
+Running test: n=3, k=3, processes=4
+Timestamp: 2025-05-07 09:35:15
+Execution time: 1.27 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.27 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 5
+  Total edges: 5
+
+Tree t=2:
+  Intra-partition edges: 0
+  Inter-partition edges: 5
+  Total edges: 5
+----------------------------------------
+
+Running test: n=4, k=2, processes=2
+Timestamp: 2025-05-07 09:35:21
+Execution time: 1.48 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.48 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 14
+  Inter-partition edges: 9
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 14
+  Inter-partition edges: 9
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 10
+  Inter-partition edges: 13
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=2, processes=3
+Timestamp: 2025-05-07 09:35:27
+Execution time: 1.51 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.51 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 6
+  Inter-partition edges: 17
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 6
+  Inter-partition edges: 17
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 7
+  Inter-partition edges: 16
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=2, processes=4
+Timestamp: 2025-05-07 09:35:33
+Execution time: 1.66 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.66 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=3, processes=2
+Timestamp: 2025-05-07 09:35:40
+Execution time: 1.90 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.90 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 14
+  Inter-partition edges: 9
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 14
+  Inter-partition edges: 9
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 10
+  Inter-partition edges: 13
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=3, processes=3
+Timestamp: 2025-05-07 09:35:47
+Execution time: 1.74 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.74 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 6
+  Inter-partition edges: 17
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 6
+  Inter-partition edges: 17
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 7
+  Inter-partition edges: 16
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=3, processes=4
+Timestamp: 2025-05-07 09:35:54
+Execution time: 1.45 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.45 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=4, processes=2
+Timestamp: 2025-05-07 09:36:00
+Execution time: 1.30 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.30 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 14
+  Inter-partition edges: 9
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 14
+  Inter-partition edges: 9
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 10
+  Inter-partition edges: 13
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=4, processes=3
+Timestamp: 2025-05-07 09:36:06
+Execution time: 1.47 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.47 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 6
+  Inter-partition edges: 17
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 6
+  Inter-partition edges: 17
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 7
+  Inter-partition edges: 16
+  Total edges: 23
+----------------------------------------
+
+Running test: n=4, k=4, processes=4
+Timestamp: 2025-05-07 09:36:12
+Execution time: 1.42 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 1.42 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+
+Tree t=2:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+
+Tree t=3:
+  Intra-partition edges: 0
+  Inter-partition edges: 23
+  Total edges: 23
+----------------------------------------
+
+Running test: n=5, k=2, processes=2
+Timestamp: 2025-05-07 09:36:18
+Execution time: 2.32 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.32 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 80
+  Inter-partition edges: 39
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 87
+  Inter-partition edges: 32
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 86
+  Inter-partition edges: 33
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 68
+  Inter-partition edges: 51
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=2, processes=3
+Timestamp: 2025-05-07 09:36:25
+Execution time: 2.52 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.52 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 53
+  Inter-partition edges: 66
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 59
+  Inter-partition edges: 60
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 59
+  Inter-partition edges: 60
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 57
+  Inter-partition edges: 62
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=2, processes=4
+Timestamp: 2025-05-07 09:36:32
+Execution time: 2.54 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.54 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 18
+  Inter-partition edges: 101
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 20
+  Inter-partition edges: 99
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 19
+  Inter-partition edges: 100
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 18
+  Inter-partition edges: 101
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=3, processes=2
+Timestamp: 2025-05-07 09:36:40
+Execution time: 2.22 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.22 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 80
+  Inter-partition edges: 39
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 87
+  Inter-partition edges: 32
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 86
+  Inter-partition edges: 33
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 68
+  Inter-partition edges: 51
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=3, processes=3
+Timestamp: 2025-05-07 09:36:47
+Execution time: 2.40 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.40 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 53
+  Inter-partition edges: 66
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 59
+  Inter-partition edges: 60
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 59
+  Inter-partition edges: 60
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 57
+  Inter-partition edges: 62
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=3, processes=4
+Timestamp: 2025-05-07 09:36:53
+Execution time: 2.58 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.58 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 18
+  Inter-partition edges: 101
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 20
+  Inter-partition edges: 99
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 19
+  Inter-partition edges: 100
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 18
+  Inter-partition edges: 101
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=4, processes=2
+Timestamp: 2025-05-07 09:37:01
+Execution time: 3.21 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 3.21 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 80
+  Inter-partition edges: 39
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 87
+  Inter-partition edges: 32
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 86
+  Inter-partition edges: 33
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 68
+  Inter-partition edges: 51
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=4, processes=3
+Timestamp: 2025-05-07 09:37:09
+Execution time: 2.36 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.36 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 53
+  Inter-partition edges: 66
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 59
+  Inter-partition edges: 60
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 59
+  Inter-partition edges: 60
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 57
+  Inter-partition edges: 62
+  Total edges: 119
+----------------------------------------
+
+Running test: n=5, k=4, processes=4
+Timestamp: 2025-05-07 09:37:16
+Execution time: 2.57 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 2.57 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 18
+  Inter-partition edges: 101
+  Total edges: 119
+
+Tree t=2:
+  Intra-partition edges: 20
+  Inter-partition edges: 99
+  Total edges: 119
+
+Tree t=3:
+  Intra-partition edges: 19
+  Inter-partition edges: 100
+  Total edges: 119
+
+Tree t=4:
+  Intra-partition edges: 18
+  Inter-partition edges: 101
+  Total edges: 119
+----------------------------------------
+
+Running test: n=6, k=2, processes=2
+Timestamp: 2025-05-07 09:37:23
+Execution time: 8.72 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 8.72 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 522
+  Inter-partition edges: 197
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 557
+  Inter-partition edges: 162
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 563
+  Inter-partition edges: 156
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 556
+  Inter-partition edges: 163
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 458
+  Inter-partition edges: 261
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=2, processes=3
+Timestamp: 2025-05-07 09:37:37
+Execution time: 8.55 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 8.55 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 400
+  Inter-partition edges: 319
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 427
+  Inter-partition edges: 292
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 429
+  Inter-partition edges: 290
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 429
+  Inter-partition edges: 290
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 399
+  Inter-partition edges: 320
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=2, processes=4
+Timestamp: 2025-05-07 09:37:50
+Execution time: 9.03 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 9.03 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 226
+  Inter-partition edges: 493
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 250
+  Inter-partition edges: 469
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 241
+  Inter-partition edges: 478
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 246
+  Inter-partition edges: 473
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 207
+  Inter-partition edges: 512
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=3, processes=2
+Timestamp: 2025-05-07 09:38:04
+Execution time: 8.05 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 8.05 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 522
+  Inter-partition edges: 197
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 557
+  Inter-partition edges: 162
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 563
+  Inter-partition edges: 156
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 556
+  Inter-partition edges: 163
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 458
+  Inter-partition edges: 261
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=3, processes=3
+Timestamp: 2025-05-07 09:38:17
+Execution time: 8.79 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 8.79 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 400
+  Inter-partition edges: 319
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 427
+  Inter-partition edges: 292
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 429
+  Inter-partition edges: 290
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 429
+  Inter-partition edges: 290
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 399
+  Inter-partition edges: 320
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=3, processes=4
+Timestamp: 2025-05-07 09:38:31
+Execution time: 8.94 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 8.94 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 226
+  Inter-partition edges: 493
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 250
+  Inter-partition edges: 469
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 241
+  Inter-partition edges: 478
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 246
+  Inter-partition edges: 473
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 207
+  Inter-partition edges: 512
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=4, processes=2
+Timestamp: 2025-05-07 09:38:45
+Execution time: 8.82 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 8.82 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 522
+  Inter-partition edges: 197
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 557
+  Inter-partition edges: 162
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 563
+  Inter-partition edges: 156
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 556
+  Inter-partition edges: 163
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 458
+  Inter-partition edges: 261
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=4, processes=3
+Timestamp: 2025-05-07 09:38:59
+Execution time: 9.07 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 9.07 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 400
+  Inter-partition edges: 319
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 427
+  Inter-partition edges: 292
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 429
+  Inter-partition edges: 290
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 429
+  Inter-partition edges: 290
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 399
+  Inter-partition edges: 320
+  Total edges: 719
+----------------------------------------
+
+Running test: n=6, k=4, processes=4
+Timestamp: 2025-05-07 09:39:13
+Execution time: 9.88 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 9.88 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 226
+  Inter-partition edges: 493
+  Total edges: 719
+
+Tree t=2:
+  Intra-partition edges: 250
+  Inter-partition edges: 469
+  Total edges: 719
+
+Tree t=3:
+  Intra-partition edges: 241
+  Inter-partition edges: 478
+  Total edges: 719
+
+Tree t=4:
+  Intra-partition edges: 246
+  Inter-partition edges: 473
+  Total edges: 719
+
+Tree t=5:
+  Intra-partition edges: 207
+  Inter-partition edges: 512
+  Total edges: 719
+----------------------------------------
+
+Running test: n=7, k=2, processes=2
+Timestamp: 2025-05-07 09:39:28
+Execution time: 67.88 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 67.88 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 3864
+  Inter-partition edges: 1175
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 4055
+  Inter-partition edges: 984
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 4103
+  Inter-partition edges: 936
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 4103
+  Inter-partition edges: 936
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 4054
+  Inter-partition edges: 985
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 3451
+  Inter-partition edges: 1588
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=2, processes=3
+Timestamp: 2025-05-07 09:40:45
+Execution time: 70.32 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 70.32 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 3180
+  Inter-partition edges: 1859
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 3317
+  Inter-partition edges: 1722
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 3329
+  Inter-partition edges: 1710
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 3335
+  Inter-partition edges: 1704
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 3335
+  Inter-partition edges: 1704
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 3083
+  Inter-partition edges: 1956
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=2, processes=4
+Timestamp: 2025-05-07 09:42:05
+Execution time: 71.79 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 71.79 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 2144
+  Inter-partition edges: 2895
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 2293
+  Inter-partition edges: 2746
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 2273
+  Inter-partition edges: 2766
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 2260
+  Inter-partition edges: 2779
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 2289
+  Inter-partition edges: 2750
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 1936
+  Inter-partition edges: 3103
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=3, processes=2
+Timestamp: 2025-05-07 09:43:27
+Execution time: 61.22 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 61.22 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 3864
+  Inter-partition edges: 1175
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 4055
+  Inter-partition edges: 984
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 4103
+  Inter-partition edges: 936
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 4103
+  Inter-partition edges: 936
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 4054
+  Inter-partition edges: 985
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 3451
+  Inter-partition edges: 1588
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=3, processes=3
+Timestamp: 2025-05-07 09:44:38
+Execution time: 70.85 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 70.85 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 3180
+  Inter-partition edges: 1859
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 3317
+  Inter-partition edges: 1722
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 3329
+  Inter-partition edges: 1710
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 3335
+  Inter-partition edges: 1704
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 3335
+  Inter-partition edges: 1704
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 3083
+  Inter-partition edges: 1956
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=3, processes=4
+Timestamp: 2025-05-07 09:45:59
+Execution time: 75.68 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 75.68 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 2144
+  Inter-partition edges: 2895
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 2293
+  Inter-partition edges: 2746
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 2273
+  Inter-partition edges: 2766
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 2260
+  Inter-partition edges: 2779
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 2289
+  Inter-partition edges: 2750
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 1936
+  Inter-partition edges: 3103
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=4, processes=2
+Timestamp: 2025-05-07 09:47:25
+Execution time: 66.50 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 66.50 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 3864
+  Inter-partition edges: 1175
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 4055
+  Inter-partition edges: 984
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 4103
+  Inter-partition edges: 936
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 4103
+  Inter-partition edges: 936
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 4054
+  Inter-partition edges: 985
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 3451
+  Inter-partition edges: 1588
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=4, processes=3
+Timestamp: 2025-05-07 09:48:40
+Execution time: 70.78 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 70.78 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 3180
+  Inter-partition edges: 1859
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 3317
+  Inter-partition edges: 1722
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 3329
+  Inter-partition edges: 1710
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 3335
+  Inter-partition edges: 1704
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 3335
+  Inter-partition edges: 1704
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 3083
+  Inter-partition edges: 1956
+  Total edges: 5039
+----------------------------------------
+
+Running test: n=7, k=4, processes=4
+Timestamp: 2025-05-07 09:50:01
+Execution time: 74.54 seconds
+Output:
+Warning: Permanently added '192.168.19.128' (ED25519) to the list of known hosts.
+
+Execution time: 74.54 seconds
+
+Partition Analysis:
+Tree t=1:
+  Intra-partition edges: 2144
+  Inter-partition edges: 2895
+  Total edges: 5039
+
+Tree t=2:
+  Intra-partition edges: 2293
+  Inter-partition edges: 2746
+  Total edges: 5039
+
+Tree t=3:
+  Intra-partition edges: 2273
+  Inter-partition edges: 2766
+  Total edges: 5039
+
+Tree t=4:
+  Intra-partition edges: 2260
+  Inter-partition edges: 2779
+  Total edges: 5039
+
+Tree t=5:
+  Intra-partition edges: 2289
+  Inter-partition edges: 2750
+  Total edges: 5039
+
+Tree t=6:
+  Intra-partition edges: 1936
+  Inter-partition edges: 3103
+  Total edges: 5039
+----------------------------------------
+

@@ -1,0 +1,40 @@
+39 dynamic_trace_events
+# FunctionId Group Tag "Name Type" Parameters
+0 TAUEVENT 0 ".TAU <unknown event>" TriggerValue
+1 TAU_DEFAULT 0 ".TAU application " EntryExit
+2 TAU_DEFAULT 0 "addr=<0x4458df> [{(unknown)} {0,0}] " EntryExit
+3 TAU_DEFAULT 0 "addr=<0x445793> [{(unknown)} {0,0}] " EntryExit
+4 TAU_DEFAULT 0 "taupreload_main " EntryExit
+5 TAU_DEFAULT 0 "addr=<0x442ac8> [{(unknown)} {0,0}] " EntryExit
+6 MPI 0 "MPI_Init()  " EntryExit
+8 MPI 0 "MPI_Comm_rank()  " EntryExit
+9 MPI 0 "MPI_Comm_size()  " EntryExit
+10 TAU_DEFAULT 0 "addr=<0x44204e> [{(unknown)} {0,0}] " EntryExit
+11 MPI 0 "MPI_Bcast()  " EntryExit
+12 MPI 0 "MPI Collective Sync  " EntryExit
+14 TAU_DEFAULT 0 "addr=<0x43f31a> [{(unknown)} {0,0}] " EntryExit
+15 TAU_DEFAULT 0 "addr=<0x43f69f> [{(unknown)} {0,0}] " EntryExit
+16 TAU_DEFAULT 0 "addr=<0x43fad3> [{(unknown)} {0,0}] " EntryExit
+17 MPI 0 "MPI_Scatterv()  " EntryExit
+19 TAU_DEFAULT 0 "addr=<0x440571> [{(unknown)} {0,0}] " EntryExit
+20 TAU_DEFAULT 0 "addr=<0x440c85> [{(unknown)} {0,0}] " EntryExit
+21 TAU_DEFAULT 0 "addr=<0x440ad4> [{(unknown)} {0,0}] " EntryExit
+22 TAU_DEFAULT 0 "addr=<0x440728> [{(unknown)} {0,0}] " EntryExit
+23 MPI 0 "MPI_Gatherv()  " EntryExit
+25 MPI 0 "MPI_Barrier()  " EntryExit
+26 TAU_DEFAULT 0 "addr=<0x44126b> [{(unknown)} {0,0}] " EntryExit
+27 TAU_DEFAULT 0 "addr=<0x441125> [{(unknown)} {0,0}] " EntryExit
+28 TAU_DEFAULT 0 "addr=<0x43f4dc> [{(unknown)} {0,0}] " EntryExit
+29 TAU_DEFAULT 0 "addr=<0x4420d2> [{(unknown)} {0,0}] " EntryExit
+7 TAUEVENT 0 "TauTraceClockOffsetStart" TriggerValue
+13 TAUEVENT 0 "Message size for broadcast" TriggerValue
+18 TAUEVENT 0 "Message size for scatter" TriggerValue
+24 TAUEVENT 0 "Message size for gather" TriggerValue
+60000 TRACER 0 "EV_INIT" none
+60001 TRACER 0 "FLUSH" EntryExit
+60003 TRACER 0 "FLUSH_CLOSE" none
+60004 TRACER 0 "FLUSH_INITM" none
+60005 TRACER 0 "WALL_CLOCK" none
+60006 TRACER 0 "CONT_EVENT" none
+60007 TAU_MESSAGE -7 "MESSAGE_SEND" par
+60008 TAU_MESSAGE -8 "MESSAGE_RECV" par

@@ -1,0 +1,96 @@
+Sequential Test Results
+=====================
+
+Running test: n=2
+Timestamp: 2025-05-07 10:31:11
+Execution time: 3.37 seconds
+Output:
+Built 1 ISTs on B_2 with |V| = 2 vertices
+SMOKE TEST PASS: All trees are valid
+Saved full‐graph to Seq_Bn2/Bn2_full_graph.png
+Saved IST‐tree t=1 to Seq_Bn2/Bn2_ist_t1.png
+Saved parent mapping to Seq_Bn2/Bn2_IST_parents.txt
+
+Execution time: 3.37 seconds
+----------------------------------------
+
+Running test: n=3
+Timestamp: 2025-05-07 10:31:19
+Execution time: 1.62 seconds
+Output:
+Built 2 ISTs on B_3 with |V| = 6 vertices
+SMOKE TEST PASS: All trees are valid
+Saved full‐graph to Seq_Bn3/Bn3_full_graph.png
+Saved IST‐tree t=1 to Seq_Bn3/Bn3_ist_t1.png
+Saved IST‐tree t=2 to Seq_Bn3/Bn3_ist_t2.png
+Saved parent mapping to Seq_Bn3/Bn3_IST_parents.txt
+
+Execution time: 1.62 seconds
+----------------------------------------
+
+Running test: n=4
+Timestamp: 2025-05-07 10:31:23
+Execution time: 1.81 seconds
+Output:
+Built 3 ISTs on B_4 with |V| = 24 vertices
+SMOKE TEST PASS: All trees are valid
+Saved full‐graph to Seq_Bn4/Bn4_full_graph.png
+Saved IST‐tree t=1 to Seq_Bn4/Bn4_ist_t1.png
+Saved IST‐tree t=2 to Seq_Bn4/Bn4_ist_t2.png
+Saved IST‐tree t=3 to Seq_Bn4/Bn4_ist_t3.png
+Saved parent mapping to Seq_Bn4/Bn4_IST_parents.txt
+
+Execution time: 1.81 seconds
+----------------------------------------
+
+Running test: n=5
+Timestamp: 2025-05-07 10:31:27
+Execution time: 2.96 seconds
+Output:
+Built 4 ISTs on B_5 with |V| = 120 vertices
+SMOKE TEST PASS: All trees are valid
+Saved full‐graph to Seq_Bn5/Bn5_full_graph.png
+Saved IST‐tree t=1 to Seq_Bn5/Bn5_ist_t1.png
+Saved IST‐tree t=2 to Seq_Bn5/Bn5_ist_t2.png
+Saved IST‐tree t=3 to Seq_Bn5/Bn5_ist_t3.png
+Saved IST‐tree t=4 to Seq_Bn5/Bn5_ist_t4.png
+Saved parent mapping to Seq_Bn5/Bn5_IST_parents.txt
+
+Execution time: 2.96 seconds
+----------------------------------------
+
+Running test: n=6
+Timestamp: 2025-05-07 10:31:31
+Execution time: 38.52 seconds
+Output:
+Built 5 ISTs on B_6 with |V| = 720 vertices
+SMOKE TEST PASS: All trees are valid
+Saved full‐graph to Seq_Bn6/Bn6_full_graph.png
+Saved IST‐tree t=1 to Seq_Bn6/Bn6_ist_t1.png
+Saved IST‐tree t=2 to Seq_Bn6/Bn6_ist_t2.png
+Saved IST‐tree t=3 to Seq_Bn6/Bn6_ist_t3.png
+Saved IST‐tree t=4 to Seq_Bn6/Bn6_ist_t4.png
+Saved IST‐tree t=5 to Seq_Bn6/Bn6_ist_t5.png
+Saved parent mapping to Seq_Bn6/Bn6_IST_parents.txt
+
+Execution time: 38.52 seconds
+----------------------------------------
+
+Running test: n=7
+Timestamp: 2025-05-07 10:32:12
+Execution time: 876.47 seconds
+Output:
+Built 6 ISTs on B_7 with |V| = 5040 vertices
+SMOKE TEST PASS: All trees are valid
+Saved full‐graph to Seq_Bn7/Bn7_full_graph.png
+Saved IST‐tree t=1 to Seq_Bn7/Bn7_ist_t1.png
+Saved IST‐tree t=2 to Seq_Bn7/Bn7_ist_t2.png
+Saved IST‐tree t=3 to Seq_Bn7/Bn7_ist_t3.png
+Saved IST‐tree t=4 to Seq_Bn7/Bn7_ist_t4.png
+Saved IST‐tree t=5 to Seq_Bn7/Bn7_ist_t5.png
+Saved IST‐tree t=6 to Seq_Bn7/Bn7_ist_t6.png
+Saved parent mapping to Seq_Bn7/Bn7_IST_parents.txt
+
+Execution time: 876.47 seconds
+----------------------------------------
+

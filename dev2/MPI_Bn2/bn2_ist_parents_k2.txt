@@ -1,0 +1,6 @@
+ISTs for n=2, k=2 partitions
+
+Tree t=1:
+  (1, 2) → ROOT
+  (2, 1) → (1, 2)
+

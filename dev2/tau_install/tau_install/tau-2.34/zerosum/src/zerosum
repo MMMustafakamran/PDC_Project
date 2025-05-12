@@ -1,0 +1,333 @@
+#!/bin/bash
+
+#
+# MIT License
+#
+# Copyright (c) 2023 University of Oregon, Kevin Huck
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+# Absolute path this script is in, thus /home/user/bin
+SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+BASEDIR="$(dirname $SCRIPTPATH)"
+#BASEDIR=@CMAKE_INSTALL_PREFIX@
+LIBDIR=lib
+
+usage() {
+    message="
+Usage:
+$(basename "$0") <ZS options> executable <executable options>
+
+where ZS options are zero or more of:
+    --zs:period <value>     specify frequency of OS/HW sampling
+                            (integer seconds, default: 1)
+    --zs:async-core <value> specify core/HWT where ZeroSum async thread should be pinned
+                            (integer id, default: last ID in process affinity list)
+    --zs:details            report detailed output
+                            (boolean, default: false)
+    --zs:verbose            provide verbose diagnostic output
+                            (boolean, default: false)
+    --zs:heartbeat          provide periodic memory consumption 'heartbeat'
+                            (boolean, default: false)
+    --zs:signal-handler     register a signal handler in ZeroSum to handle crashes
+                            (boolean, default: false)
+    --zs:use-pid            Use the hostname.pid instead of MPI rank for log file name
+                            (boolean, default: false)
+    --zs:openmp             Enable OpenMP support without OMPT (GCC for example)
+                            (boolean, default: false)
+    --zs:deadlock           Enable deadlock detection support
+                            (boolean, default: false)
+    --zs:lock-duration <value>   Deadlock detection support after <value> _sample_periods_
+                            (integer seconds, default: 5)
+    --zs:monitor-log        Enable logfile monitoring support (experimental, may not work on shared filesystems)
+                            (boolean, default: false)
+    --zs:monitor-log-filename <value>   Log filename to monitor (experimental, may not work on shared filesystems)
+                            (string, default: '')
+    --zs:monitor-log-timeout <value>   Stale logfile support after <value> seconds (experimental, may not work on shared filesystems)
+                            (integer seconds, default: 300)
+    --zs:expiration <value> specify time limit in seconds
+                            (integer seconds, default: one year, i.e. 31M seconds)
+    --zs:debug              Run in debugger 'gdb'
+                            (boolean, default: false)
+    --zs:debugger <name>    Run in debugger <name>
+                            (string, default: gdb)
+    --zs:map-cores          Map cores from OS index to Core (requires HWLOC)
+                            (boolean, default: false)
+    --zs:map-pus            Map cores from OS index to PU (requires HWLOC
+                            and assumes that SMP/hyperthreading is enabled and used)
+                            (boolean, default: false)
+    "
+    echo "${message}"
+    exit 1
+}
+
+prog=""
+PARAMS=""
+debug=no
+debugger=gdb
+verbose=no
+
+if [ $# -eq 0 ] ; then
+    usage
+fi
+
+PARAMS=""
+while (( "$#" )); do
+  case "$1" in
+    --zs:period)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        export ZS_PERIOD=$2
+        shift 2
+      else
+        echo "Error: Argument for $1 is missing" >&2
+        usage
+      fi
+      ;;
+    --zs:expiration)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        export ZS_TIMELIMIT=$2
+        shift 2
+      else
+        echo "Error: Argument for $1 is missing" >&2
+        usage
+      fi
+      ;;
+    --zs:signal-handler)
+      export ZS_SIGNAL_HANDLER=1
+      shift
+      ;;
+    --zs:details)
+      export ZS_DETAILS=1
+      shift
+      ;;
+    --zs:verbose)
+      export ZS_VERBOSE=1
+      export OMP_TOOL_VERBOSE_INIT=stdout
+      verbose=yes
+      shift
+      ;;
+    --zs:heartbeat)
+      export ZS_HEART_BEAT=1
+      shift
+      ;;
+    --zs:map-cores)
+      export ZS_MAP_CORES=1
+      shift
+      ;;
+    --zs:map-pus)
+      export ZS_MAP_PUS=1
+      shift
+      ;;
+    --zs:use-pid)
+      export ZS_USE_PID=1
+      shift
+      ;;
+    --zs:openmp)
+      export ZS_USE_OPENMP=1
+      shift
+      ;;
+    --zs:deadlock)
+      export ZS_DETECT_DEADLOCK=1
+      debug=yes
+      export ZS_DEBUGGING=1
+      shift
+      ;;
+    --zs:monitor-log)
+      export ZS_MONITOR_LOG=1
+      shift
+      ;;
+    --zs:lock-duration)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        export ZS_DEADLOCK_DURATION=$2
+        shift 2
+      else
+        echo "Error: Argument for $1 is missing" >&2
+        usage
+      fi
+      ;;
+    --zs:monitor-log-filename)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        export ZS_MONITOR_LOG=1
+        export ZS_MONITOR_LOG_FILENAME=$2
+        shift 2
+      else
+        echo "Error: Argument for $1 is missing" >&2
+        usage
+      fi
+      ;;
+    --zs:monitor-log-timeout)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        export ZS_MONITOR_LOG=1
+        export ZS_MONITOR_LOG_TIMEOUT=$2
+        shift 2
+      else
+        echo "Error: Argument for $1 is missing" >&2
+        usage
+      fi
+      ;;
+    --zs:async-core)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        export ZS_ASYNC_CORE=$2
+        shift 2
+      else
+        echo "Error: Argument for $1 is missing" >&2
+        usage
+      fi
+      ;;
+    --zs:debugger)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        export debugger=$2
+        debug=yes
+        export ZS_DEBUGGING=1
+        shift 2
+      else
+        echo "Error: Argument for $1 is missing" >&2
+        usage
+      fi
+      ;;
+    --zs:debug)
+      debug=yes
+      export ZS_DEBUGGING=1
+      shift
+      ;;
+    --zs:help)
+      usage
+      ;;
+    --zs:*) # unsupported flags
+      echo "Error: Unsupported flag $1" >&2
+      usage
+      ;;
+    *) # preserve positional arguments
+      if [ "$prog" = "" ] ; then
+        prog=$1
+      fi
+      PARAMS="$PARAMS $1"
+      shift
+      ;;
+  esac
+done
+# set positional arguments in their proper place
+eval set -- "${PARAMS}"
+
+if [ ${#PARAMS} -eq 0 ] ; then
+    usage
+fi
+
+myrank=0
+# Detect our MPI rank!
+if [ ! -z ${PMI_RANK+x} ] ; then
+    myrank=${PMI_RANK}
+fi
+if [ ! -z ${ALPS_APP_PE+x} ] ; then
+    myrank=${ALPS_APP_PE}
+fi
+if [ ! -z ${CRAY_PMI_RANK+x} ] ; then
+    myrank=${CRAY_PMI_RANK}
+fi
+if [ ! -z ${OMPI_COMM_WORLD_RANK+x} ] ; then
+    myrank=${OMPI_COMM_WORLD_RANK}
+fi
+if [ ! -z ${PBS_TASKNUM+x} ] ; then
+    myrank=${PBS_TASKNUM}
+fi
+if [ ! -z ${PBS_O_TASKNUM+x} ] ; then
+    myrank=${PBS_O_TASKNUM}
+fi
+if [ ! -z ${SLURM_PROCID+x} ] ; then
+    myrank=${SLURM_PROCID}
+fi
+if [ ! -z ${PMIX_RANK+x} ] ; then
+    myrank=${PMIX_RANK}
+fi
+
+printf -v myrank_padded "%04g" $myrank
+
+gdbcmds=/tmp/gdbcmds.${myrank}
+rm -f ${gdbcmds}
+
+# Setup all the library paths, and library preloads to support what was requested
+# NOTE: we add the ":" to each library name, becuase stupid APPLE isn't smart enough
+# to handle an empty library name and tries to load a library named '' :(
+if [ "x${LD_LIBRARY_PATH}" = "x" ] ; then
+  LD_LIBRARY_PATH=${BASEDIR}/${LIBDIR}:${BASEDIR}/@CMAKE_INSTALL_LIBDIR@
+else
+  LD_LIBRARY_PATH=${BASEDIR}/${LIBDIR}:${BASEDIR}/@CMAKE_INSTALL_LIBDIR@:${LD_LIBRARY_PATH}
+fi
+
+PRELOAD=${BASEDIR}/${LIBDIR}/@ZS_LIBNAME@.so
+mpi=@ZS_USE_MPI@
+export OMP_TOOL=enabled
+export OMP_TOOL_LIBRARIES=${PRELOAD}
+export INTELGT_AUTO_ATTACH_DISABLE=1
+export ZES_ENABLE_SYSMAN=1
+
+# Some versions of GDB will pin us to core 0 - like on Perlmutter
+cpulist=`cat /proc/self/status | grep Cpus_allowed_list | sed -e 's/^\w*:\ *//' | xargs`
+
+if [ $debug = yes ] ; then
+    echo "set env LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> ${gdbcmds}
+    echo "set env LD_PRELOAD=${PRELOAD}" >> ${gdbcmds}
+    if [ $mpi = yes ]; then
+        # Set up logging
+        echo "set pagination off" >> ${gdbcmds}
+        echo "set height 0" >> ${gdbcmds}
+        echo "set logging overwrite on" >> ${gdbcmds}
+        echo "set logging redirect on" >> ${gdbcmds}
+        echo "set logging file zsgdb.${myrank_padded}.log" >> ${gdbcmds}
+        echo "set logging enabled on" >> ${gdbcmds}
+        # In case GDB has changed our taskset...
+        echo "set exec-wrapper taskset -c ${cpulist}" >> ${gdbcmds}
+
+        # Run the executable
+        echo "run" >> ${gdbcmds}
+
+        # If non-zero exit, do the following:
+        echo "echo \n\nBacktrace:\n\n" >> ${gdbcmds}
+        echo "backtrace" >> ${gdbcmds}
+        echo "echo \n\nMain thread Backtrace:\n\n" >> ${gdbcmds}
+        echo "thread 1" >> ${gdbcmds}
+        echo "backtrace" >> ${gdbcmds}
+        #echo "echo \n\nRegisters:\n\n" >> ${gdbcmds}
+        #echo "info registers" >> ${gdbcmds}
+        #echo "echo \n\nCurrent instructions:\n\n" >> ${gdbcmds}
+        #echo "x/16i \$pc" >> ${gdbcmds}
+        echo "echo \n\nThreads:\n\n" >> ${gdbcmds}
+        echo "info threads" >> ${gdbcmds}
+        echo "echo \n\nThread Backtrace:\n\n" >> ${gdbcmds}
+        echo "thread apply all bt" >> ${gdbcmds}
+
+        # exit gdb
+        echo "quit" >> ${gdbcmds}
+        gdbargs="-batch -q"
+    fi
+    ${debugger} -x ${gdbcmds} ${gdbargs} --args ${PARAMS}
+    rm -f ${gdbcmds}
+else
+    if [ ${verbose} == yes ] ; then
+        set -x
+    fi
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+    export LD_PRELOAD=${PRELOAD}
+    ${PARAMS}
+    unset LD_PRELOAD
+    if [ ${verbose} == yes ] ; then
+        set +x
+    fi
+fi

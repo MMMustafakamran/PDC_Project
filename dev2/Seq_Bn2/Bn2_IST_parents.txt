@@ -1,0 +1,6 @@
+Constructed 1 ISTs on B_2
+
+Tree t=1 (node -> parent):
+(1, 2) -> ROOT
+(2, 1) -> (1, 2)
+

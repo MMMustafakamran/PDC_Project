@@ -1,0 +1,107 @@
+106 dynamic_trace_events
+# FunctionId Group Tag "Name Type" Parameters
+0 TAUEVENT 0 ".TAU <unknown event>" TriggerValue
+1 TAU_DEFAULT 0 ".TAU application " EntryExit
+2 TAU_DEFAULT 0 "addr=<0x4458df> [{(unknown)} {0,0}] " EntryExit
+3 TAU_DEFAULT 0 "addr=<0x445793> [{(unknown)} {0,0}] " EntryExit
+4 TAU_DEFAULT 0 "taupreload_main " EntryExit
+5 TAU_DEFAULT 0 "addr=<0x442ac8> [{(unknown)} {0,0}] " EntryExit
+6 MPI 0 "MPI_Init()  " EntryExit
+8 MPI 0 "MPI_Comm_rank()  " EntryExit
+9 MPI 0 "MPI_Comm_size()  " EntryExit
+10 MPI 0 "MPI_Bcast()  " EntryExit
+11 MPI 0 "MPI Collective Sync  " EntryExit
+13 MPI 0 "MPI_Scatterv()  " EntryExit
+14 TAU_DEFAULT 0 "addr=<0x43f31a> [{(unknown)} {0,0}] " EntryExit
+15 TAU_DEFAULT 0 "addr=<0x440571> [{(unknown)} {0,0}] " EntryExit
+16 MPI 0 "MPI_Gatherv()  " EntryExit
+17 MPI 0 "MPI_Barrier()  " EntryExit
+18 MPI 0 "MPI_Finalize()  " EntryExit
+7 TAUEVENT 0 "TauTraceClockOffsetStart" TriggerValue
+12 TAUEVENT 0 "Message size for broadcast" TriggerValue
+19 TAUEVENT 0 "TauTraceClockOffsetEnd" TriggerValue
+20 TAUEVENT 0 "CPU Cores | 2" TriggerValue
+21 TAUEVENT 0 "CPU MHz | 1190.404" TriggerValue
+22 TAUEVENT 0 "CPU Type | Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz" TriggerValue
+23 TAUEVENT 0 "CPU Vendor | GenuineIntel" TriggerValue
+24 TAUEVENT 0 "CPUs Allowed | 00000000,00000000,00000000,000000ff" TriggerValue
+25 TAUEVENT 0 "CPUs Allowed List | 0-7" TriggerValue
+26 TAUEVENT 0 "CWD | /home/fatima/Desktop/PDC_Project/dev2" TriggerValue
+27 TAUEVENT 0 "Cache Size | 6144 KB" TriggerValue
+28 TAUEVENT 0 "Command Line | ./openmp_cpp_inst 7 3" TriggerValue
+29 TAUEVENT 0 "Executable | /home/fatima/Desktop/PDC_Project/dev2/openmp_cpp_inst" TriggerValue
+30 TAUEVENT 0 "Hostname | fatima-clone" TriggerValue
+31 TAUEVENT 0 "Local Time | 2025-05-07T11:45:05+05:00" TriggerValue
+32 TAUEVENT 0 "MPI Processor Name | fatima-clone" TriggerValue
+33 TAUEVENT 0 "Memories Allowed | 00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001" TriggerValue
+34 TAUEVENT 0 "Memories Allowed List | 0" TriggerValue
+35 TAUEVENT 0 "Memory Size | 3912208 kB" TriggerValue
+36 TAUEVENT 0 "Node Name | fatima-clone" TriggerValue
+37 TAUEVENT 0 "OS Machine | x86_64" TriggerValue
+38 TAUEVENT 0 "OS Name | Linux" TriggerValue
+39 TAUEVENT 0 "OS Release | 6.8.0-59-generic" TriggerValue
+40 TAUEVENT 0 "OS Version | #61~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Apr 15 17:03:15 UTC 2" TriggerValue
+41 TAUEVENT 0 "Starting Timestamp | 1746600305044432" TriggerValue
+42 TAUEVENT 0 "TAU Architecture | default" TriggerValue
+43 TAUEVENT 0 "TAU Config |  -mpi -openmp" TriggerValue
+44 TAUEVENT 0 "TAU Makefile | /home/fatima/Desktop/PDC_Project/dev2/tau_install/tau_install/tau-2.34/x86_64/lib/Makefile.tau-mpi-openmp" TriggerValue
+45 TAUEVENT 0 "TAU Version | 2.34-git" TriggerValue
+46 TAUEVENT 0 "TAU_BFD_LOOKUP | on" TriggerValue
+47 TAUEVENT 0 "TAU_CALLPATH_DEPTH | 10" TriggerValue
+48 TAUEVENT 0 "TAU_CALLSITE_DEPTH | 1" TriggerValue
+49 TAUEVENT 0 "TAU_COMM_MATRIX | off" TriggerValue
+50 TAUEVENT 0 "TAU_CUDA_BINARY_EXE | " TriggerValue
+51 TAUEVENT 0 "TAU_CUPTI_API | runtime" TriggerValue
+52 TAUEVENT 0 "TAU_CURRENT_TIMER_EXIT_PARAMS | off" TriggerValue
+53 TAUEVENT 0 "TAU_EBS_KEEP_UNRESOLVED_ADDR | off" TriggerValue
+54 TAUEVENT 0 "TAU_IBM_BG_HWP_COUNTERS | off" TriggerValue
+55 TAUEVENT 0 "TAU_MEASURE_TAU | off" TriggerValue
+56 TAUEVENT 0 "TAU_MEMDBG_PROTECT_ABOVE | off" TriggerValue
+57 TAUEVENT 0 "TAU_MEMDBG_PROTECT_BELOW | off" TriggerValue
+58 TAUEVENT 0 "TAU_MEMDBG_PROTECT_FREE | off" TriggerValue
+59 TAUEVENT 0 "TAU_MEMMGR_MAX_BLOCKS | 64" TriggerValue
+60 TAUEVENT 0 "TAU_OPENMP_RUNTIME | on" TriggerValue
+61 TAUEVENT 0 "TAU_OPENMP_RUNTIME_EVENTS | on" TriggerValue
+62 TAUEVENT 0 "TAU_OPENMP_RUNTIME_STATES | off" TriggerValue
+63 TAUEVENT 0 "TAU_OUTPUT_CUDA_CSV | off" TriggerValue
+64 TAUEVENT 0 "TAU_PAPI_MULTIPLEXING | off" TriggerValue
+65 TAUEVENT 0 "TAU_PROFILE | on" TriggerValue
+66 TAUEVENT 0 "TAU_PROFILE_FORMAT | profile" TriggerValue
+67 TAUEVENT 0 "TAU_RECYCLE_THREADS | off" TriggerValue
+68 TAUEVENT 0 "TAU_REGION_ADDRESSES | off" TriggerValue
+69 TAUEVENT 0 "TAU_SAMPLING | off" TriggerValue
+70 TAUEVENT 0 "TAU_SHOW_MEMORY_FUNCTIONS | off" TriggerValue
+71 TAUEVENT 0 "TAU_SIGNALS_GDB | off" TriggerValue
+72 TAUEVENT 0 "TAU_SYNCHRONIZE_CLOCKS | on" TriggerValue
+73 TAUEVENT 0 "TAU_THROTTLE | on" TriggerValue
+74 TAUEVENT 0 "TAU_THROTTLE_NUMCALLS | 100000" TriggerValue
+75 TAUEVENT 0 "TAU_THROTTLE_PERCALL | 10" TriggerValue
+76 TAUEVENT 0 "TAU_TRACE | on" TriggerValue
+77 TAUEVENT 0 "TAU_TRACE_FORMAT | tau" TriggerValue
+78 TAUEVENT 0 "TAU_TRACK_CUDA_CDP | off" TriggerValue
+79 TAUEVENT 0 "TAU_TRACK_CUDA_ENV | off" TriggerValue
+80 TAUEVENT 0 "TAU_TRACK_CUDA_INSTRUCTIONS | " TriggerValue
+81 TAUEVENT 0 "TAU_TRACK_CUDA_SASS | off" TriggerValue
+82 TAUEVENT 0 "TAU_TRACK_HEADROOM | off" TriggerValue
+83 TAUEVENT 0 "TAU_TRACK_HEAP | off" TriggerValue
+84 TAUEVENT 0 "TAU_TRACK_IO_PARAMS | off" TriggerValue
+85 TAUEVENT 0 "TAU_TRACK_MEMORY_FOOTPRINT | off" TriggerValue
+86 TAUEVENT 0 "TAU_TRACK_MEMORY_LEAKS | off" TriggerValue
+87 TAUEVENT 0 "TAU_TRACK_MESSAGE | on" TriggerValue
+88 TAUEVENT 0 "TAU_TRACK_SIGNALS | off" TriggerValue
+89 TAUEVENT 0 "TAU_TRACK_UNIFIED_MEMORY | off" TriggerValue
+90 TAUEVENT 0 "TAU_VERBOSE | on" TriggerValue
+91 TAUEVENT 0 "TAU_VERBOSE_RANK | 3" TriggerValue
+92 TAUEVENT 0 "Timestamp | 1746600305044677" TriggerValue
+93 TAUEVENT 0 "UTC Time | 2025-05-07T06:45:05Z" TriggerValue
+94 TAUEVENT 0 "pid | 82107" TriggerValue
+95 TAUEVENT 0 "tid | 82107" TriggerValue
+96 TAUEVENT 0 "username | fatima" TriggerValue
+60000 TRACER 0 "EV_INIT" none
+60001 TRACER 0 "FLUSH" EntryExit
+60003 TRACER 0 "FLUSH_CLOSE" none
+60004 TRACER 0 "FLUSH_INITM" none
+60005 TRACER 0 "WALL_CLOCK" none
+60006 TRACER 0 "CONT_EVENT" none
+60007 TAU_MESSAGE -7 "MESSAGE_SEND" par
+60008 TAU_MESSAGE -8 "MESSAGE_RECV" par
